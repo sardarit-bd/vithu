@@ -3,15 +3,15 @@ import Link from "next/link";
 
 export default function Header() {
     return (
-        <header className="w-full bg-white shadow">
-            <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+        <header className="w-full bg-white shadow sticky top-0 z-50">
+            <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
                 <Link href="/" className="flex items-center">
                     <Image
                         src="/images/logo.png"
                         alt="SwitzerIT Logo"
                         width={100}
                         height={100}
-                        className="object-contain h-10 w-auto"
+                        className='h-10 w-auto'
                     />
                 </Link>
 
