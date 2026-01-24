@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import myimg from "@/../public/images/hero.png";
 export default function Hero() {
     return (
         <section className="relative w-full h-[80vh] bg-cover bg-center bg-[url('/images/hero.png')] flex items-center">
