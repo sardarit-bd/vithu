@@ -1,4 +1,3 @@
-import React from 'react';
 import { Building2, Shield, BookOpen, Users, Settings } from 'lucide-react';
 
 export default function WhyChooseSwitzerIT() {

@@ -1,8 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 export default function Hero() {
     return (
-        <section className="relative w-full h-[80vh] bg-cover bg-center bg-[url('/images/hero.png')] flex items-center">
+        <section className="relative w-full h-[85vh] bg-cover bg-center bg-[url('/images/hero.png')] flex items-center">
 
             <div className="absolute inset-0 bg-black opacity-40"></div>
 
@@ -19,18 +18,16 @@ export default function Hero() {
                 </p>
 
                 {/* CTA Buttons */}
-                <div className="flex space-x-4">
-                    <Link href="/services">
-                        <button className="bg-white text-gray-900 px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition">
-                            Nos services →
-                        </button>
+                <div className="w-full flex flex-col md:flex-row md:space-x-4 space-y-3 md:space-y-0">
+                    <Link href="/services" className="w-full md:w-auto text-center bg-white text-gray-900 px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors duration-200">
+                        Nos services →
                     </Link>
-                    <Link href="/contact">
-                        <button className="bg-red-600 text-white px-6 py-3 rounded-md font-medium hover:bg-red-700 transition">
-                            Consultation gratuite
-                        </button>
+
+                    <Link href="/contact" className="w-full md:w-auto text-center bg-red-600 text-white px-6 py-3 rounded-md font-medium hover:bg-red-700 transition-colors duration-200">
+                        Consultation gratuite
                     </Link>
                 </div>
+
             </div>
         </section>
     );

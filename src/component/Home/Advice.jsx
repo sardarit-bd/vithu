@@ -1,4 +1,3 @@
-import React from 'react';
 import { Calendar, Check } from 'lucide-react';
 
 export default function CTASection() {
