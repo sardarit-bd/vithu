@@ -45,7 +45,7 @@ export default function AboutSection() {
                     {/* Image */}
                     <div className="relative h-96 md:h-full min-h-[400px] rounded-lg overflow-hidden shadow-xl">
                         <Image
-                            src="/images/about_one.jpg"
+                            src="https://res.cloudinary.com/dg83pvgls/image/upload/v1769323337/about_one_j93zuq.jpg"
                             alt="Business professionals shaking hands"
                             fill
                             className="object-cover"

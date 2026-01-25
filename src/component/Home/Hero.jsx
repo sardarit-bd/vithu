@@ -1,7 +1,7 @@
 import Link from "next/link";
 export default function Hero() {
     return (
-        <section className="relative w-full h-[85vh] bg-cover bg-center bg-[url('/images/hero.png')] flex items-center">
+        <section className="relative w-full h-[85vh] bg-cover bg-center bg-[url('https://res.cloudinary.com/dg83pvgls/image/upload/v1769323338/hero_u1obv1.jpg')] flex items-center">
 
             <div className="absolute inset-0 bg-black opacity-40"></div>
 
