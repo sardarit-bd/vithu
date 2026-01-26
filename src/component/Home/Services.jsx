@@ -1,13 +1,14 @@
 "use client";
 
 import useServicesStore from "@/stores/servicesStore";
+import Link from "next/link";
 
 export default function ITServicesSection() {
     const { services } = useServicesStore();
 
     return (
-        <section className="py-16 px-4 bg-white">
-            <div className="max-w-6xl mx-auto">
+        <section className="py-16 px-4 bg-white comic">
+            <div className="max-w-7xl mx-auto px-3">
                 {/* Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -47,11 +48,11 @@ export default function ITServicesSection() {
                 </div>
 
                 {/* Call to Action Box */}
-                <div className="bg-blue-50 border-l-4 border-blue-500 rounded-lg p-6">
+                <div className="bg-red-50 border-l-4 border-red-600 rounded-lg p-6">
                     <div className="flex items-start">
                         <div className="flex-shrink-0">
                             <svg
-                                className="w-6 h-6 text-blue-500"
+                                className="w-6 h-6 text-red-500"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -71,7 +72,7 @@ export default function ITServicesSection() {
                             <p className="text-gray-700 text-sm leading-relaxed">
                                 LocalIT n'est pas uniquement. Si votre besoin particulier n'est l'ensemble de nos besoins informatiques,
                                 quelle qu'elle soient. N'hésitez pas à nous contacter pour en savoir + nous pouvez le savoir si nous pouvons
-                                accompagner à votre demande, à savoir résoudre la votre résoudre là nous demande.
+                                accompagner à votre demande, à savoir résoudre la votre résoudre là nous demande. <Link className="text-red-600 font-semibold text-md" href="/contact">Contactez-nous</Link>
                             </p>
                         </div>
                     </div>

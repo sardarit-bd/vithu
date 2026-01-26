@@ -22,10 +22,27 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-Aptos);
 }
 
 .hello {
-    background:#fff;
-    padding:10px;
+  background: #fff;
+  padding: 10px;
+}
+
+
+.dashboardheaderheader {
+  z-index: 1 !important;
+}
+
+.dashboardsidebar {
+  z-index: 999 !important;
+}
+
+.aptos {
+  font-family: var(--font-Aptos) !important;
+}
+
+.comic {
+  font-family: var(--font-Comic) !important;
 }
