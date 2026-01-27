@@ -26,7 +26,7 @@ export default function Footer() {
                     <div>
                         <div className="flex items-center gap-2 mb-4">
                             <Image
-                                src="https://res.cloudinary.com/dg83pvgls/image/upload/v1769323337/logo_gf4wgo.png"
+                                src="https://res.cloudinary.com/dg83pvgls/image/upload/v1769509686/Screenshot_2026-01-27_162722_ld5h66.png"
                                 alt="SwitzerIT Logo"
                                 width={100}
                                 height={100}

@@ -1,13 +1,13 @@
-import { create } from "zustand";
 import {
-  Headphones,
-  Wrench,
-  Wifi,
   Cloud,
-  Monitor,
   FolderKanban,
-  Shield
+  Headphones,
+  Monitor,
+  Shield,
+  Wifi,
+  Wrench
 } from 'lucide-react';
+import { create } from "zustand";
 
 const useServicesStore = create((set) => ({
   services: [
@@ -24,7 +24,9 @@ const useServicesStore = create((set) => ({
         "Diagnostic et résolution des incidents matériels et logiciels",
         "Support sur les outils courants (systèmes, applications, périphériques)",
         "Suivi des demandes et traçabilité des interventions"
-      ]
+      ],
+      isLeft: true,
+      image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769512983/itsupport_mklkjg.jpg"
 
     },
     {
@@ -39,7 +41,9 @@ const useServicesStore = create((set) => ({
         "Suivi du parc et contrôle de l’état des environnements",
         "Anticipation des incidents et actions correctives",
         "Recommandations d’évolution et d’optimisation"
-      ]
+      ],
+      isLeft: false,
+      image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769511869/maintaince_kn9cfu.jpg"
 
     },
     {
@@ -54,7 +58,9 @@ const useServicesStore = create((set) => ({
         "Sensibilisation et recommandations en matière de sécurité",
         "Analyse forensique et investigation après incident de sécurité",
         "Recommandations, plans de remédiation et renforcement des contrôles de sécurité"
-      ]
+      ],
+      isLeft: true,
+      image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769511870/protected_nwvutf.jpg"
     },
     {
       icon: Wifi,
@@ -70,7 +76,9 @@ const useServicesStore = create((set) => ({
         "Installation et configuration de systèmes de vidéosurveillance (caméras, enregistreurs, accès)",
         "Mise en place de solutions de contrôle d’accès (badges, codes, lecteurs, gestion des droits)",
         "Diagnostic et résolution des problématiques réseau"
-      ]
+      ],
+      isLeft: false,
+      image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769511867/network_mj4gw1.jpg"
 
     },
     {
@@ -84,7 +92,9 @@ const useServicesStore = create((set) => ({
         "Outils collaboratifs pour le partage de documents et le travail en équipe",
         "Gestion des accès, des droits et des utilisateurs",
         "Stockage cloud sécurisé et synchronisation des données"
-      ]
+      ],
+      isLeft: true,
+      image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769511863/cloud_cqnltk.jpg"
 
     },
     {
@@ -98,7 +108,9 @@ const useServicesStore = create((set) => ({
         "Mise en service et intégration des équipements dans l’environnement existant",
         "Gestion et suivi du parc d’équipements",
         "Optimisation et évolution des solutions en place"
-      ]
+      ],
+      isLeft: false,
+      image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769511864/equipment_z5uoay.jpg"
     },
     {
       icon: FolderKanban,
@@ -110,7 +122,9 @@ const useServicesStore = create((set) => ({
         "Conseil et recommandations adaptées",
         "Pilotage et coordination des projets",
         "Mise en œuvre de solutions sur mesure"
-      ]
+      ],
+      isLeft: true,
+      image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769512985/custom_1_zgou8o.jpg"
 
     }
   ],
