@@ -1,9 +1,9 @@
 import Link from "next/link";
 export default function Hero() {
     return (
-        <section className="relative w-full h-[85vh] bg-cover bg-center bg-[url('https://res.cloudinary.com/dg83pvgls/image/upload/v1769323338/hero_u1obv1.jpg')] flex items-center">
+        <section className="relative w-full h-[85vh] bg-cover bg-center bg-[url('https://res.cloudinary.com/dg83pvgls/image/upload/v1769514751/switzer_bg_p0ifcm.jpg')] flex items-center">
 
-            <div className="absolute inset-0 bg-black opacity-40"></div>
+            <div className="absolute inset-0 bg-black opacity-30"></div>
 
             {/* Content */}
             <div className="relative z-10 max-w-7xl mx-auto h-full flex flex-col justify-center items-start px-3 text-white aptos">

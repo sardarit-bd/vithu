@@ -1,9 +1,13 @@
 "use client"
 
+import { sendEmail } from '@/utiliy/sendEmail';
 import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 import { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function ContactSection() {
+
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -21,9 +25,33 @@ export default function ContactSection() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert("Form has been submitted")
+
+        if (formData.fullName == "" || formData.email == "" || formData.phone == "" || formData.company == "" || formData.subject == "" || formData.message == "") {
+            toast('Enter all the fields');
+            return;
+        }
+
+        setLoading(true);
+        try {
+            await sendEmail(formData);
+            toast('Email sent successfully')
+            setFormData({
+                fullName: '',
+                email: '',
+                phone: '',
+                company: '',
+                subject: '',
+                message: ''
+            })
+        } catch (error) {
+            toast("Failed to send Email");
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+
     };
 
     return (
@@ -128,7 +156,8 @@ export default function ContactSection() {
                                 onClick={handleSubmit}
                                 className="w-full bg-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-red-700 transition duration-200"
                             >
-                                Envoyer le message
+                                {loading ? "Envoyer le message..." : "Envoyer le message"}
+
                             </button>
                         </div>
                     </div>
@@ -225,6 +254,7 @@ export default function ContactSection() {
                     </div>
                 </div>
             </div>
+            <Toaster position="bottom-center" />
         </section>
     );
 }
