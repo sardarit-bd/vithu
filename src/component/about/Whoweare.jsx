@@ -1,10 +1,9 @@
-import React from 'react';
 import Image from 'next/image';
 
 export default function AboutSection() {
     return (
-        <section className="py-16 px-6 bg-white">
-            <div className="max-w-7xl mx-auto">
+        <section className="py-16 bg-white">
+            <div className="max-w-7xl mx-auto px-3">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     {/* Text Content */}
                     <div className="space-y-6">
@@ -43,9 +42,9 @@ export default function AboutSection() {
                     </div>
 
                     {/* Image */}
-                    <div className="relative h-96 md:h-full min-h-[400px] rounded-lg overflow-hidden shadow-xl">
+                    <div className="relative h-96 md:h-full min-h-[400px] rounded-lg overflow-hidden shadow-sm">
                         <Image
-                            src="https://res.cloudinary.com/dg83pvgls/image/upload/v1769323337/about_one_j93zuq.jpg"
+                            src="https://res.cloudinary.com/dg83pvgls/image/upload/v1769428293/poster_s4crd3.png"
                             alt="Business professionals shaking hands"
                             fill
                             className="object-cover"

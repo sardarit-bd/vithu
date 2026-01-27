@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
-import Header from "../component/common/Header";
-import Footer from "@/component/common/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,6 +12,37 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
+//local font is here
+const Aptos = localFont({
+  src: [
+    {
+      path: "../../public/font/Aptos/Aptos.ttf",
+      weight: "600",
+      style: "normal",
+    },
+  ],
+  variable: "--font-Aptos",
+});
+
+const Comic = localFont({
+  src: [
+    {
+      path: "../../public/font/Comic/comici.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-Comic",
+});
+
+
+
+
+
+
+
+
 export const metadata = {
   title: "Switzer IT",
   description: "Solutions informatiques professionnelles pour entreprises et particuliers.",
@@ -22,11 +52,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${Comic.variable} ${Aptos.variable} antialiased`}
       >
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );

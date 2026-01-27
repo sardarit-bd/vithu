@@ -1,7 +1,7 @@
 "use client"
 
+import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 export default function ContactSection() {
     const [formData, setFormData] = useState({
@@ -27,8 +27,8 @@ export default function ContactSection() {
     };
 
     return (
-        <section className="py-16 px-6 bg-white">
-            <div className="max-w-7xl mx-auto">
+        <section className="py-16 bg-white">
+            <div className="max-w-7xl mx-auto px-3">
                 <div className="grid lg:grid-cols-2 gap-12">
                     <div>
                         <h2 className="text-3xl font-bold text-gray-900 mb-8">

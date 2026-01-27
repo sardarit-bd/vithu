@@ -5,8 +5,8 @@ export default function ValuesSection() {
     const { services } = useValueStore();
 
     return (
-        <section className="py-16 px-6 bg-gray-50">
-            <div className="max-w-7xl mx-auto">
+        <section className="py-16 bg-gray-50">
+            <div className="max-w-7xl mx-auto px-3">
                 <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
                     Nos valeurs
                 </h2>

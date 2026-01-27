@@ -1,4 +1,4 @@
-import { Building2, Shield, BookOpen, Users, Settings } from 'lucide-react';
+import { BookOpen, Building2, Settings, Shield, Users } from 'lucide-react';
 
 export default function WhyChooseSwitzerIT() {
     const features = [
@@ -30,8 +30,8 @@ export default function WhyChooseSwitzerIT() {
     ];
 
     return (
-        <div className="w-full bg-gray-50 py-16 px-4">
-            <div className="max-w-6xl mx-auto">
+        <div className="w-full bg-gray-50 py-16">
+            <div className="max-w-7xl mx-auto px-3">
                 {/* Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

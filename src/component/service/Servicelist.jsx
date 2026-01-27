@@ -1,13 +1,12 @@
 "use client"; // optional, but good if using hooks later
 
-import React from 'react';
 import useServicesStore from "@/stores/servicesStore";
 
 export default function ServiceCards() {
     const { services } = useServicesStore();
     return (
-        <div className="w-full bg-white py-12 px-4">
-            <div className="max-w-7xl mx-auto space-y-8">
+        <div className="w-full bg-white py-12">
+            <div className="max-w-7xl mx-auto space-y-8 px-3">
                 {services.map((service, index) => {
                     const IconComponent = service.icon;
                     return (

@@ -1,8 +1,8 @@
 "use client"
-import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,15 +12,15 @@ export default function Header() {
     };
 
     return (
-        <header className="w-full bg-white shadow sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+        <header className="w-full bg-white shadow sticky top-0 z-50 aptos">
+            <div className="max-w-7xl mx-auto flex items-center justify-between px-3 py-4">
                 <Link href="/" className="flex items-center">
                     <Image
-                        src="https://res.cloudinary.com/dg83pvgls/image/upload/v1769323337/logo_gf4wgo.png"
+                        src="https://res.cloudinary.com/dg83pvgls/image/upload/v1769431251/my_logo_pagady.png"
                         alt="SwitzerIT Logo"
-                        width={100}
-                        height={100}
-                        className='h-10 w-auto'
+                        width={1000}
+                        height={1000}
+                        className='h-7 w-auto'
                     />
                 </Link>
 
@@ -32,12 +32,17 @@ export default function Header() {
                     <Link href="/contact" className="hover:text-red-600 transition">Contact</Link>
                 </nav>
 
-                <Link
-                    href="/contact"
-                    className="hidden md:inline-block bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition"
-                >
-                    Demander un devis
-                </Link>
+
+                <div className="flex items-center gap-4">
+                    {/* <LanguessageShifter /> */}
+
+                    <Link
+                        href="/contact"
+                        className="hidden md:inline-block bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition"
+                    >
+                        Demander un devis
+                    </Link>
+                </div>
 
                 {/* Hamburger */}
                 <button
