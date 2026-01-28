@@ -1,3 +1,6 @@
+'use client'
+import { motion } from "framer-motion";
+
 
 export default function Breadcrumb({
     title = "",
@@ -6,25 +9,41 @@ export default function Breadcrumb({
     bgColor = "bg-gray-50",
     paddingY = "py-16",
     paddingX = "px-4",
-    maxWidth = "max-w-4xl",
+    maxWidth = "max-w-7xl",
     textAlign = "text-center"
 }) {
     return (
         <div className={`${bgColor} ${paddingY} ${paddingX} w-full`}>
             <div className={`${maxWidth} mx-auto ${textAlign}`}>
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <motion.h1
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                        duration: 0.2,
+                        delay: 0.1,
+                        ease: "easeOut"
+                    }}
+                    className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-justify">
                     {title}
-                </h1>
+                </motion.h1>
 
                 {subtitle && (
-                    <>
-                        <p className="text-lg md:text-xl text-gray-700 mb-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.2,
+                            delay: 0.2,
+                            ease: "easeOut"
+                        }}
+                    >
+                        <p className="text-lg md:text-xl text-gray-700 mb-6 text-justify">
                             {subtitle}
                         </p>
-                        <p className="text-sm md:text-md lg:text-md text-gray-700 mb-6">
+                        <p className="text-sm md:text-md lg:text-md text-gray-700 mb-6 text-justify">
                             {extra}
                         </p>
-                    </>
+                    </motion.div>
                 )}
             </div>
         </div>

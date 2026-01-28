@@ -13,8 +13,8 @@ const useServicesStore = create((set) => ({
   services: [
     {
       icon: Headphones,
-      title: "Support & assistance informatique",
-      description: "Support informatique structuré pour accompagner les utilisateurs et assurer le bon fonctionnement quotidien des postes de travail, logiciels et services informatiques, à distance ou sur site.",
+      title: "Assistance et support informatique",
+      description: "Dépannage et assistance informatique pour résoudre efficacement vos problèmes, àdistance ou sur site.",
       color: "bg-red-50",
       prestations: [
         "Support utilisateurs à distance (poste de travail, logiciels, messagerie, accès réseau)",
@@ -32,7 +32,7 @@ const useServicesStore = create((set) => ({
     {
       icon: Wrench,
       title: "Infogérance & maintenance IT",
-      description: "Gestion structurée des systèmes et services visant à assurer le bon fonctionnement quotidien de l’environnement, sa stabilité dans le temps et l’anticipation des évolutions nécessaires.",
+      description: "Gestion et maintenance de votre environnement informatique pour assurer stabilité et continuité.",
       color: "bg-red-50",
       prestations: [
         "Supervision et suivi des infrastructures et services",
@@ -49,7 +49,7 @@ const useServicesStore = create((set) => ({
     {
       icon: Shield,
       title: "Cybersécurité & protection des données",
-      description: "Approche structurée de la cybersécurité visant à sécuriser les systèmes d’information et les données, en intégrant la prévention, la détection et la gestion des incidents dans un cadre conforme aux bonnes pratiques et aux standards de sécurité.",
+      description: "Mise en place de solutions adaptées pour protéger vos données et réduire les risques informatiques.",
       color: "bg-red-50",
       prestations: [
         "Analyse de risques et évaluation de la posture de sécurité",
@@ -65,7 +65,7 @@ const useServicesStore = create((set) => ({
     {
       icon: Wifi,
       title: "Réseaux & Wi-Fi",
-      description: "Conception, déploiement et optimisation des infrastructures réseau et Wi-Fi afin d’assurer une connectivité stable, sécurisée et adaptée aux usages, aussi bien pour les environnements professionnels que résidentiels.",
+      description: "Installation et optimisation de réseaux filaires et Wi-Fi fiables, sécurisés et adaptés à vos usages.",
       color: "bg-red-50",
       prestations: [
         "Conception et mise en place d’architectures réseau filaires",
@@ -84,7 +84,7 @@ const useServicesStore = create((set) => ({
     {
       icon: Cloud,
       title: "Cloud, messagerie & collaboration",
-      description: "Mise en place de solutions cloud et collaboratives modernes pour améliorer la communication, fluidifier le travail d’équipe et permettre un accès simple et sécurisé aux outils et aux données, où que vous soyez.",
+      description: "Solutions cloud et messagerie professionnelle pour faciliter la communication et le travail collaboratif.",
       color: "bg-red-50",
       prestations: [
         "Migration et déploiement de solutions cloud (Microsoft 365, Google Workspace)",
@@ -100,7 +100,7 @@ const useServicesStore = create((set) => ({
     {
       icon: Monitor,
       title: "Équipements et solutions sur site",
-      description: "Fourniture, déploiement et intégration de solutions matérielles et d’équipements sur site afin d’assurer un environnement fiable, cohérent et évolutif, en lien avec l’infrastructure existante.",
+      description: "Fourniture et installation d’équipements informatiques adaptés à votre environnement.",
       color: "bg-red-50",
       prestations: [
         "Fourniture, installation et maintenance de postes de travail, imprimantes et périphériques",
@@ -110,12 +110,12 @@ const useServicesStore = create((set) => ({
         "Optimisation et évolution des solutions en place"
       ],
       isLeft: false,
-      image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769511864/equipment_z5uoay.jpg"
+      image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769601509/balok_hv8rkj.jpg"
     },
     {
       icon: FolderKanban,
       title: "Projets informatiques & solutions sur mesure",
-      description: "Accompagnement personnalisé pour la conception, la mise en œuvre et le suivi de projets informatiques, en tenant compte de vos contraintes, de vos objectifs et de votre environnement existant.",
+      description: "Accompagnement personnalisé pour vos projets informatiques, simples ou plus complexes.",
       color: "bg-red-50",
       prestations: [
         "Analyse des besoins et des contraintes techniques",

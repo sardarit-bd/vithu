@@ -1,124 +1,225 @@
+'use client'
+import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Footer() {
     const navigation = [
-        { label: 'Accueil', href: '#' },
-        { label: 'Services', href: '#' },
-        { label: 'À propos', href: '#' },
-        { label: 'Contact', href: '#' }
+        { label: 'Accueil', href: '/' },
+        { label: 'Services', href: '/services' },
+        { label: 'À propos', href: '/about' },
+        { label: 'Contact', href: '/contact' }
     ];
 
     const services = [
-        { label: 'Assistance et support', href: '#' },
-        { label: 'Infogérance', href: '#' },
-        { label: 'Cybersécurité', href: '#' },
-        { label: 'Réseaux & Wi-Fi', href: '#' },
-        { label: 'Cloud & collaboration', href: '#' },
-        { label: 'Solutions sur mesure', href: '#' }
+        { label: 'Assistance et support', href: '/services#0' },
+        { label: 'Infogérance', href: '/services#1' },
+        { label: 'Cybersécurité', href: '/services#2' },
+        { label: 'Réseaux & Wi-Fi', href: '/services#3' },
+        { label: 'Cloud & collaboration', href: '/services#4' },
+        { label: 'Solutions sur mesure', href: '/services#5' }
     ];
 
     return (
-        <footer className="bg-slate-900 text-gray-300">
+        <footer className="bg-gray-200 text-gray-300">
             <div className="max-w-7xl mx-auto px-3 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                     {/* Brand Section */}
                     <div>
-                        <div className="flex items-center gap-2 mb-4">
+                        <motion.div
+                            initial={{ opacity: 0, x: -45 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{
+                                duration: 1,
+                                delay: 0.1,
+                                ease: "easeOut"
+                            }}
+                            className="flex items-center gap-2 mb-4">
                             <Image
-                                src="https://res.cloudinary.com/dg83pvgls/image/upload/v1769509686/Screenshot_2026-01-27_162722_ld5h66.png"
+                                src="https://res.cloudinary.com/dg83pvgls/image/upload/v1769431251/my_logo_pagady.png"
                                 alt="SwitzerIT Logo"
-                                width={100}
-                                height={100}
+                                width={1000}
+                                height={1000}
                                 className='h-10 w-auto'
                             />
-                        </div>
-                        <p className="text-sm text-gray-400 leading-relaxed">
+                        </motion.div>
+                        <motion.p
+                            initial={{ opacity: 0, x: -45 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{
+                                duration: 1,
+                                delay: 0.3,
+                                ease: "easeOut"
+                            }}
+                            className="text-md text-gray-700 leading-relaxed">
                             Votre partenaire informatique de confiance en Suisse. Solutions professionnelles pour entreprises et particuliers.
-                        </p>
+                        </motion.p>
                     </div>
                     <div>
-                        <h3 className="text-white font-semibold mb-4">Navigation</h3>
+                        <motion.h3
+                            initial={{ opacity: 0, x: -45 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{
+                                duration: 1,
+                                delay: 0.1,
+                                ease: "easeOut"
+                            }}
+
+                            className="text-gray-800 text-xl font-bold mb-4">Navigation</motion.h3>
                         <ul className="space-y-2">
                             {navigation.map((item, index) => (
-                                <li key={index}>
-                                    <a
+                                <motion.li
+                                    initial={{ opacity: 0, x: -45 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                        duration: 1,
+                                        delay: 0.2 * index,
+                                        ease: "easeOut"
+                                    }}
+                                    key={index}>
+                                    <Link
                                         href={item.href}
-                                        className="text-sm text-gray-400 hover:text-white transition-colors"
+                                        className="text-md text-gray-700 hover:text-red-600 transition-all ease-in-out duration-300"
                                     >
                                         {item.label}
-                                    </a>
-                                </li>
+                                    </Link>
+                                </motion.li>
                             ))}
                         </ul>
                     </div>
                     <div>
-                        <h3 className="text-white font-semibold mb-4">Services</h3>
+                        <motion.h3
+                            initial={{ opacity: 0, x: -45 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{
+                                duration: 1,
+                                delay: 0.1,
+                                ease: "easeOut"
+                            }}
+                            className="text-gray-800 text-xl font-bold mb-4">Services</motion.h3>
                         <ul className="space-y-2">
                             {services.map((item, index) => (
-                                <li key={index}>
-                                    <a
+                                <motion.li
+                                    initial={{ opacity: 0, x: -45 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                        duration: 1,
+                                        delay: 0.2 * index,
+                                        ease: "easeOut"
+                                    }}
+                                    key={index}>
+                                    <Link
                                         href={item.href}
-                                        className="text-sm text-gray-400 hover:text-white transition-colors"
+                                        className="text-md text-gray-700 hover:text-red-600 transition-all ease-in-out duration-300"
                                     >
                                         {item.label}
-                                    </a>
-                                </li>
+                                    </Link>
+                                </motion.li>
                             ))}
                         </ul>
                     </div>
                     <div>
-                        <h3 className="text-white font-semibold mb-4">Contact</h3>
+                        <motion.h3
+                            initial={{ opacity: 0, x: -45 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{
+                                duration: 1,
+                                delay: 0.1,
+                                ease: "easeOut"
+                            }}
+                            className="text-gray-800 text-xl font-bold mb-4">Contact</motion.h3>
                         <ul className="space-y-3">
-                            <li>
+                            <motion.li
+                                initial={{ opacity: 0, x: -45 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{
+                                    duration: 1,
+                                    delay: 0.3,
+                                    ease: "easeOut"
+                                }}
+                            >
                                 <a
                                     href="mailto:support@switzerit.com"
-                                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                                    className="flex items-center gap-2 text-md text-gray-700 hover:text-red-600 transition-all ease-in-out duration-300"
                                 >
                                     <Mail className="w-4 h-4" />
                                     <span>support@switzerit.com</span>
                                 </a>
-                            </li>
-                            <li>
-                                <a
+                            </motion.li>
+                            <motion.li
+                                initial={{ opacity: 0, x: -45 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{
+                                    duration: 1,
+                                    delay: 0.5,
+                                    ease: "easeOut"
+                                }}
+                            >
+                                <Link
                                     href="tel:+41779913873"
-                                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                                    target='_blank'
+                                    className="flex items-center gap-2 text-md text-gray-700 hover:text-red-600 transition-all ease-in-out duration-300"
                                 >
                                     <Phone className="w-4 h-4" />
                                     <span>+41 77 991 38 73</span>
-                                </a>
-                            </li>
-                            <li>
-                                <div className="flex items-start gap-2 text-sm text-gray-400">
+                                </Link>
+                            </motion.li>
+                            <motion.li
+                                initial={{ opacity: 0, x: -45 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{
+                                    duration: 1,
+                                    delay: 0.7,
+                                    ease: "easeOut"
+                                }}
+                            >
+                                <Link target='_blank' href='https://maps.app.goo.gl/yY1bEsyDR6QpVvZ3A' className="flex items-start gap-2 text-md text-gray-700 hover:text-red-600 transition-all ease-in-out duration-300">
                                     <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                                     <span>
                                         Route de Villars 15<br />
                                         1867 Ollon, Suisse
                                     </span>
-                                </div>
-                            </li>
+                                </Link>
+                            </motion.li>
                         </ul>
                     </div>
                 </div>
 
-                <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-sm text-gray-500">
+                <div className="border-t-2 border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <motion.p
+                        initial={{ opacity: 0, x: -45 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{
+                            duration: 1,
+                            delay: 0.3,
+                            ease: "easeOut"
+                        }}
+                        className="text-md text-gray-700">
                         © 2026 SwitzerIT. Tous droits réservés.
-                    </p>
-                    <div className="flex gap-6">
+                    </motion.p>
+                    <motion.div
+                        initial={{ opacity: 0, x: -45 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{
+                            duration: 1,
+                            delay: 0.5,
+                            ease: "easeOut"
+                        }}
+                        className="flex gap-6">
                         <a
                             href="#"
-                            className="text-sm text-gray-500 hover:text-white transition-colors"
+                            className="text-md text-gray-700 hover:text-red-600 transition-all ease-in-out duration-300"
                         >
                             Mentions légales
                         </a>
                         <a
                             href="#"
-                            className="text-sm text-gray-500 hover:text-white transition-colors"
+                            className="text-md text-gray-700 hover:text-red-600 transition-all ease-in-out duration-300"
                         >
                             Politique de confidentialité
                         </a>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </footer>

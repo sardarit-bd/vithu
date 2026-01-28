@@ -1,6 +1,7 @@
 "use client"; // optional, but good if using hooks later
 
 import useServicesStore from "@/stores/servicesStore";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,7 +13,7 @@ export default function ServiceCards() {
                 {services.map((service, index) => {
                     const IconComponent = service.icon;
                     return (
-                        <div key={index} className="bg-gray-50 rounded-lg p-0 sm:p-2 md:p-5 lg:p-8 mb-10">
+                        <div id={index - 1} key={index} className="bg-gray-50 rounded-lg p-0 sm:p-2 md:p-5 lg:p-8 mb-10">
                             <div className="flex flex-col lg:flex-row justify-between gap-8">
                                 {/* Left Column - Title and Description */}
                                 <div className={`lg:w-2/5 ${service?.isLeft ? "order-1 lg:order-1" : " order-2 lg:order-2"}`}>
@@ -22,27 +23,61 @@ export default function ServiceCards() {
                                 {/* Right Column - Prestations */}
                                 <div className={`hello lg:w-3/5 rounded-lg ${service?.isLeft ? "order-2 lg:order-2" : "order-2 lg:order-1"}`}>
                                     <div className="mb-4">
-                                        <div className="flex items-start gap-4 mb-4">
+                                        <motion.div
+                                            initial={{ opacity: 0, x: -45 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{
+                                                duration: 0.5,
+                                                delay: 0,
+                                                ease: "easeOut"
+                                            }}
+                                            className="flex items-start gap-4 mb-4">
                                             <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center text-white flex-shrink-0">
                                                 <IconComponent className="w-6 h-6" />
                                             </div>
                                             <h3 className="text-2xl font-semibold text-gray-900 mt-2">
                                                 {service.title}
                                             </h3>
-                                        </div>
-                                        <p className="text-md text-gray-600 leading-relaxed">
+                                        </motion.div>
+                                        <motion.p
+                                            initial={{ opacity: 0, x: -45 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{
+                                                duration: 0.5,
+                                                delay: 0.1,
+                                                ease: "easeOut"
+                                            }}
+                                            className="text-md text-gray-600 leading-relaxed">
                                             {service.description}
-                                        </p>
+                                        </motion.p>
                                     </div>
-                                    <h4 className="text-sm font-semibold mb-3">
+                                    <motion.h4
+                                        initial={{ opacity: 0, x: -45 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        transition={{
+                                            duration: 0.5,
+                                            delay: 0.1,
+                                            ease: "easeOut"
+                                        }}
+                                        className="text-sm font-semibold mb-3">
                                         Prestations incluses :
-                                    </h4>
-                                    <ul className="space-y-2">
+                                    </motion.h4>
+                                    <ul className="space-y-2 flex flex-col gap-2">
                                         {service.prestations.map((prestation, idx) => (
-                                            <li key={idx} className="flex items-start gap-2">
-                                                <span className="text-red-600 mt-1 flex-shrink-0">•</span>
+                                            <motion.li
+                                                initial={{ opacity: 0, x: -45 }}
+                                                whileInView={{ opacity: 1, x: 0 }}
+                                                transition={{
+                                                    duration: 0.8,
+                                                    delay: 0.1 * idx,
+                                                    ease: "easeOut"
+                                                }}
+                                                key={idx} className="flex items-center gap-2">
+                                                <span className="text-red-600 mt-1 flex-shrink-0">
+                                                    <div className="bg-red-300 h-[12px] w-[12px] rounded-full" />
+                                                </span>
                                                 <span className="text-sm text-gray-700">{prestation}</span>
-                                            </li>
+                                            </motion.li>
                                         ))}
                                     </ul>
                                 </div>
