@@ -1,3 +1,6 @@
+'use client'
+
+import { motion } from 'framer-motion';
 import { BookOpen, Building2, Settings, Shield, Users } from 'lucide-react';
 
 export default function WhyChooseSwitzerIT() {
@@ -48,7 +51,14 @@ export default function WhyChooseSwitzerIT() {
                 {/* Features Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                     {features.map((feature, index) => (
-                        <div
+                        <motion.div
+                            initial={{ opacity: 0, y: 45 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{
+                                duration: 1,
+                                delay: 0.1,
+                                ease: "easeOut"
+                            }}
                             key={index}
                             className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
                         >
@@ -61,19 +71,27 @@ export default function WhyChooseSwitzerIT() {
                             <p className="text-sm text-gray-600">
                                 {feature.description}
                             </p>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 
                 {/* Bottom Section */}
-                <div className="bg-white rounded-lg p-8 shadow-sm">
+                <motion.div
+                    initial={{ opacity: 0, x: -45 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{
+                        duration: 1,
+                        delay: 0.6,
+                        ease: "easeOut"
+                    }}
+                    className="bg-white rounded-lg p-8 shadow-sm">
                     <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">
                         Une expertise locale et accessible
                     </h3>
                     <p className="text-sm text-gray-600 text-center max-w-4xl mx-auto leading-relaxed">
                         Basés en Suisse, nous comprenons les exigences de qualité et de fiabilité du marché suisse. Notre équipe locale parle votre langue (français, anglais) et connaît les spécificités des entreprises suisses. Nous combinons l'excellence technique avec une relation de proximité pour vous offrir un service personnalisé et réactif. Votre satisfaction est notre priorité.
                     </p>
-                </div>
+                </motion.div>
             </div>
         </div>
     );

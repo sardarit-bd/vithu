@@ -1,6 +1,7 @@
 "use client"
 
 import { sendEmail } from '@/utiliy/sendEmail';
+import { motion } from "framer-motion";
 import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
@@ -58,7 +59,15 @@ export default function ContactSection() {
         <section className="py-16 bg-white">
             <div className="max-w-7xl mx-auto px-3">
                 <div className="grid lg:grid-cols-2 gap-12">
-                    <div>
+                    <motion.div
+                        initial={{ opacity: 0, x: -45 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                            duration: 0.5,
+                            delay: 0.10,
+                            ease: "easeOut"
+                        }}
+                    >
                         <h2 className="text-3xl font-bold text-gray-900 mb-8">
                             Envoyez-nous un message
                         </h2>
@@ -134,6 +143,7 @@ export default function ContactSection() {
                                     <option value="support">Consultation gratuite</option>
                                     <option value="devis">Support technique</option>
                                     <option value="info">Infogérance</option>
+                                    <option value="autre">Demande dedevis</option>
                                     <option value="autre">Autre</option>
                                 </select>
                             </div>
@@ -160,10 +170,17 @@ export default function ContactSection() {
 
                             </button>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Contact Information */}
-                    <div>
+                    <motion.div
+                        initial={{ opacity: 0, x: 45 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                            duration: 0.5,
+                            delay: 0.10,
+                            ease: "easeOut"
+                        }}>
                         <h2 className="text-3xl font-bold text-gray-900 mb-8">
                             Informations de contact
                         </h2>
@@ -226,7 +243,7 @@ export default function ContactSection() {
                         </div>
 
                         {/* Free Consultation Box */}
-                        <div className="mt-8 bg-gray-50 rounded-lg p-6">
+                        <div className="mt-8 bg-red-50 border-2 border-red-100 rounded-lg p-6">
                             <h3 className="text-xl font-bold text-gray-900 mb-3">
                                 Consultation gratuite
                             </h3>
@@ -251,10 +268,10 @@ export default function ContactSection() {
                                 Numéro d'urgence : <a href="tel:+41779666229" className="text-red-600 hover:text-red-700 font-semibold">+41 77 966 62 29</a>
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
             <Toaster position="bottom-center" />
-        </section>
+        </section >
     );
 }

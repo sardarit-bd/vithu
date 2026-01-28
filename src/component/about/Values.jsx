@@ -1,5 +1,6 @@
 "use client"
 import useValueStore from "@/stores/valueStore";
+import { motion } from "framer-motion";
 
 export default function ValuesSection() {
     const { services } = useValueStore();
@@ -23,13 +24,29 @@ export default function ValuesSection() {
                                     <Icon className="w-10 h-10 text-white" strokeWidth={2} />
                                 </div>
 
-                                <h3 className="text-xl font-semibold text-gray-900">
+                                <motion.h3
+                                    initial={{ opacity: 0, y: 45 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{
+                                        duration: 1,
+                                        delay: 0.1 * index,
+                                        ease: "easeOut"
+                                    }}
+                                    className="text-xl font-semibold text-gray-900">
                                     {value.title}
-                                </h3>
+                                </motion.h3>
 
-                                <p className="text-gray-600 leading-relaxed">
+                                <motion.p
+                                    initial={{ opacity: 0, y: 45 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{
+                                        duration: 1,
+                                        delay: 0.2 * index,
+                                        ease: "easeOut"
+                                    }}
+                                    className="text-gray-600 leading-relaxed">
                                     {value.description}
-                                </p>
+                                </motion.p>
                             </div>
                         );
                     })}

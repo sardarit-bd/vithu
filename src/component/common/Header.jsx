@@ -25,7 +25,9 @@ export default function Header() {
                 </Link>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex space-x-6 text-gray-700 font-medium">
+                <nav
+
+                    className="hidden md:flex space-x-6 text-gray-700 font-medium">
                     <Link href="/" className="hover:text-red-600 transition">Accueil</Link>
                     <Link href="/services" className="hover:text-red-600 transition">Services</Link>
                     <Link href="/about" className="hover:text-red-600 transition">À propos</Link>

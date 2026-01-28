@@ -1,13 +1,14 @@
 "use client";
 
 import useServicesStore from "@/stores/servicesStore";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function ITServicesSection() {
     const { services } = useServicesStore();
 
     return (
-        <section className="py-16 px-4 bg-white comic">
+        <section className="py-12 px-4 bg-white">
             <div className="max-w-7xl mx-auto px-3">
                 {/* Header */}
                 <div className="text-center mb-12">
@@ -15,12 +16,13 @@ export default function ITServicesSection() {
                         Nos services informatiques
                     </h2>
                     <p className="text-gray-600 max-w-3xl mx-auto">
-                        Nos solutions informatiques sont adaptées à chacune pour le quotidien
+                        Des solutions informatiques qui simplifient vraiment votre quotidien
                     </p>
                     <p className="text-gray-500 text-sm mt-2 max-w-3xl mx-auto">
-                        Que votre besoin soit stratégique à la recherche d'un partenaire IT fiable ou un particulier cherchant un accompagnement
-                        technique, LocalIT met son expertise à votre service. Nous intervenons sur l'ensemble de vos problématiques informatiques
-                        avec professionnalisme et réactivité.
+                        Que vous soyez une entreprise à la recherche d'un partenaire IT fiable ou un
+                        particulier nécessitant un accompagnement technique, SwitzerIT met son expertise
+                        à votre service. Nous intervenons sur l'ensemble de vos problématiques
+                        informatiques avec professionnalisme et réactivité.
                     </p>
                 </div>
 
@@ -29,7 +31,14 @@ export default function ITServicesSection() {
                     {services.map((service, index) => {
                         const IconComponent = service.icon;
                         return (
-                            <div
+                            <motion.div
+                                initial={{ opacity: 0, y: 45 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{
+                                    duration: 1,
+                                    delay: 0.1,
+                                    ease: "easeOut"
+                                }}
                                 key={index}
                                 className="p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow duration-300"
                             >
@@ -42,13 +51,21 @@ export default function ITServicesSection() {
                                 <p className="text-gray-600 text-sm leading-relaxed">
                                     {service.description}
                                 </p>
-                            </div>
+                            </motion.div>
                         );
                     })}
                 </div>
 
                 {/* Call to Action Box */}
-                <div className="bg-red-50 border-l-4 border-red-600 rounded-lg p-6">
+                <motion.div
+                    initial={{ opacity: 0, x: -45 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{
+                        duration: 1,
+                        delay: 0.6,
+                        ease: "easeOut"
+                    }}
+                    className="bg-red-50 border-l-4 border-red-600 rounded-lg p-6">
                     <div className="flex items-start">
                         <div className="flex-shrink-0">
                             <svg
@@ -67,16 +84,17 @@ export default function ITServicesSection() {
                         </div>
                         <div className="ml-4">
                             <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                                Vous avez un besoin spécifique ?
+                                💡 Vous avez un besoin spécifique ?
                             </h4>
                             <p className="text-gray-700 text-sm leading-relaxed">
-                                LocalIT n'est pas uniquement. Si votre besoin particulier n'est l'ensemble de nos besoins informatiques,
-                                quelle qu'elle soient. N'hésitez pas à nous contacter pour en savoir + nous pouvez le savoir si nous pouvons
-                                accompagner à votre demande, à savoir résoudre la votre résoudre là nous demande. <Link className="text-red-600 font-semibold text-md" href="/contact">Contactez-nous</Link>
+                                Cette liste n'est pas exhaustive. SwitzerIT vous accompagne sur l'ensemble de vos
+                                besoins informatiques, quels qu'ils soient. N'hésitez pas à nous contacter pour
+                                discuter de votre projet, même s'il ne figure pas dans cette liste. Notre équipe
+                                d'experts trouvera la solution adaptée à votre situation. <Link className="text-red-600 font-semibold text-md" href="/contact">Contactez-nous</Link>
                             </p>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
