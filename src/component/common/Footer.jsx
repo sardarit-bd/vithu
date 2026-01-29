@@ -24,12 +24,12 @@ export default function Footer() {
     ];
 
     const services = [
-        { label: currentLan.ser1, href: '/services#0' },
-        { label: currentLan.ser2, href: '/services#1' },
-        { label: currentLan.ser3, href: '/services#2' },
-        { label: currentLan.ser4, href: '/services#3' },
-        { label: currentLan.ser5, href: '/services#4' },
-        { label: currentLan.ser6, href: '/services#5' }
+        { label: currentLan.ser1, href: '/services#1' },
+        { label: currentLan.ser2, href: '/services#2' },
+        { label: currentLan.ser3, href: '/services#3' },
+        { label: currentLan.ser4, href: '/services#4' },
+        { label: currentLan.ser5, href: '/services#5' },
+        { label: currentLan.ser6, href: '/services#6' }
     ];
 
     return (
