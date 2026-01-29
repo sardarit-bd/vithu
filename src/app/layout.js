@@ -1,4 +1,5 @@
 
+import Drag from "@/component/Drag";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -18,9 +19,24 @@ const geistMono = Geist_Mono({
 const Aptos = localFont({
   src: [
     {
+      path: "../../public/font/Aptos/Aptos-Light.ttf",
+      weight: "400",
+      style: "thin",
+    },
+    {
       path: "../../public/font/Aptos/Aptos.ttf",
-      weight: "600",
+      weight: "500",
       style: "normal",
+    },
+    {
+      path: "../../public/font/Aptos/Aptos-Display.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/font/Aptos/Aptos-Bold.ttf",
+      weight: "600",
+      style: "bold",
     },
   ],
   variable: "--font-Aptos",
@@ -58,6 +74,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} ${Comic.variable} ${Aptos.variable} antialiased`}
       >
         {children}
+        <Drag />
       </body>
     </html>
   );

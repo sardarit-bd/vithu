@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from 'next/image';
 
-export default function AboutSection() {
+export default function AboutSection({ w }) {
     return (
         <section className="py-16 bg-white">
             <div className="max-w-7xl mx-auto px-3">
@@ -19,7 +19,7 @@ export default function AboutSection() {
                                 ease: "easeOut"
                             }}
                             className="text-4xl font-bold text-gray-900 text-justify">
-                            Qui sommes-nous ?
+                            {w?.whoTitle}
                         </motion.h2>
 
                         <motion.p
@@ -30,10 +30,8 @@ export default function AboutSection() {
                                 delay: 0.2,
                                 ease: "easeOut"
                             }}
-                            className="text-gray-700 leading-relaxed text-justify">
-                            SwitzerIT est une société suisse de services informatiques dédiée à
-                            accompagner les entreprises et les particuliers dans la gestion complète
-                            de leurs besoins IT.
+                            className="text-gray-500 text-md font-medium leading-relaxed text-justify">
+                            {w?.whoTitledescription1}
                         </motion.p>
 
                         <motion.p
@@ -44,10 +42,8 @@ export default function AboutSection() {
                                 delay: 0.4,
                                 ease: "easeOut"
                             }}
-                            className="text-gray-700 leading-relaxed text-justify">
-                            Nous mettons notre expertise technique et notre approche professionnelle
-                            au service de votre réussite, en proposant des solutions fiables,
-                            sécurisées et adaptées à vos besoins.
+                            className="text-gray-500 text-md font-medium leading-relaxed text-justify">
+                            {w?.whoTitledescription2}
                         </motion.p>
 
                         <motion.p
@@ -58,11 +54,8 @@ export default function AboutSection() {
                                 delay: 0.6,
                                 ease: "easeOut"
                             }}
-                            className="text-gray-700 leading-relaxed text-justify">
-                            Basés en Suisse, nous comprenons les exigences de qualité, de sécurité et
-                            de professionnalisme qui caractérisent le marché suisse. Notre équipe
-                            d'experts combine compétences techniques pointues et sens du service pour
-                            vous garantir une expérience optimale.
+                            className="text-gray-500 text-md font-medium leading-relaxed text-justify">
+                            {w?.whoTitledescription3}
                         </motion.p>
 
                         <motion.div
@@ -74,11 +67,10 @@ export default function AboutSection() {
                                 ease: "easeOut"
                             }}
                             className="pt-4">
-                            <p className="text-gray-900 text-justify">
-                                <b className="font-extrabold text-red-400">Notre promesse :</b>{' '}
-                                <span className="text-gray-700">
-                                    être à vos côtés pour que l'informatique devienne un atout pour votre
-                                    activité, et non une contrainte.
+                            <p className="text-gray-500 text-md font-medium leading-relaxed text-justify">
+                                <b className="font-bold text-lg text-gray-700">{w?.whoTitledescription4highlight}</b>{' '}
+                                <span className="text-gray-500 text-md font-medium leading-relaxed text-justify">
+                                    {w?.whoTitledescription4}
                                 </span>
                             </p>
                         </motion.div>

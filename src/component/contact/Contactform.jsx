@@ -6,7 +6,7 @@ import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 
-export default function ContactSection() {
+export default function ContactSection({ l }) {
 
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
@@ -55,6 +55,8 @@ export default function ContactSection() {
 
     };
 
+
+
     return (
         <section className="py-16 bg-white">
             <div className="max-w-7xl mx-auto px-3">
@@ -69,14 +71,14 @@ export default function ContactSection() {
                         }}
                     >
                         <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                            Envoyez-nous un message
+                            {l?.boxtitle}
                         </h2>
 
                         <div className="space-y-6">
                             <div className="grid md:grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Nom complet *
+                                        {l?.fullName}
                                     </label>
                                     <input
                                         type="text"
@@ -89,7 +91,7 @@ export default function ContactSection() {
 
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Email *
+                                        {l?.email}
                                     </label>
                                     <input
                                         type="email"
@@ -104,7 +106,7 @@ export default function ContactSection() {
                             <div className="grid md:grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Téléphone
+                                        {l?.phone}
                                     </label>
                                     <input
                                         type="tel"
@@ -117,7 +119,7 @@ export default function ContactSection() {
 
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Entreprise
+                                        {l?.company}
                                     </label>
                                     <input
                                         type="text"
@@ -131,7 +133,7 @@ export default function ContactSection() {
 
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Sujet *
+                                    {l?.subject}
                                 </label>
                                 <select
                                     name="subject"
@@ -139,36 +141,42 @@ export default function ContactSection() {
                                     onChange={handleChange}
                                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition bg-white"
                                 >
-                                    <option value="">Sélectionnez un sujet</option>
-                                    <option value="support">Consultation gratuite</option>
-                                    <option value="devis">Support technique</option>
-                                    <option value="info">Infogérance</option>
-                                    <option value="autre">Demande dedevis</option>
-                                    <option value="autre">Autre</option>
+                                    <option value="">{l?.subselete1}</option>
+                                    <option value="support">{l?.subselete2}</option>
+                                    <option value="devis">{l?.subselete3}</option>
+                                    <option value="info">{l?.subselete4}</option>
+                                    <option value="autre">{l?.subselete5}</option>
+                                    <option value="autre">{l?.subselete6}</option>
                                 </select>
                             </div>
 
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Message *
+                                    {l?.message}
                                 </label>
                                 <textarea
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
                                     rows={6}
-                                    placeholder="Décrivez-nous vos besoins..."
+                                    placeholder={l?.messagePlaceholder}
                                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition resize-none"
                                 />
                             </div>
 
-                            <button
-                                onClick={handleSubmit}
-                                className="w-full bg-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-red-700 transition duration-200"
-                            >
-                                {loading ? "Envoyer le message..." : "Envoyer le message"}
+                            <div className='flex items-center justify-start'>
+                                <motion.button
+                                    onClick={handleSubmit}
+                                    whileHover={{ scale: 1 }}
+                                    whileTap={{ scale: 0.85 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                                    className="w-fit cursor-pointer bg-red-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-red-700 transition-all ease-in-out duration-100"
+                                >
+                                    {loading ? `${l?.btn}...` : l?.btn}
 
-                            </button>
+                                </motion.button>
+                            </div>
+
                         </div>
                     </motion.div>
 
@@ -182,7 +190,7 @@ export default function ContactSection() {
                             ease: "easeOut"
                         }}>
                         <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                            Informations de contact
+                            {l?.addresstitle}
                         </h2>
 
                         <div className="space-y-6">
@@ -192,7 +200,7 @@ export default function ContactSection() {
                                     <Mail className="w-6 h-6 text-red-600" />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
+                                    <h3 className="font-semibold text-gray-900 mb-1">{l?.eTitle}</h3>
                                     <a href="mailto:support@switzerit.com" className="text-red-600 hover:text-red-700">
                                         support@switzerit.com
                                     </a>
@@ -205,7 +213,7 @@ export default function ContactSection() {
                                     <Phone className="w-6 h-6 text-red-600" />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-gray-900 mb-1">Téléphone</h3>
+                                    <h3 className="font-semibold text-gray-900 mb-1">{l?.teltitle}</h3>
                                     <a href="tel:+41779913873" className="text-red-600 hover:text-red-700">
                                         +41 77 991 38 73
                                     </a>
@@ -218,7 +226,7 @@ export default function ContactSection() {
                                     <MapPin className="w-6 h-6 text-red-600" />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-gray-900 mb-1">Adresse</h3>
+                                    <h3 className="font-semibold text-gray-900 mb-1">{l?.addtitle}</h3>
                                     <p className="text-gray-600">
                                         Route de Villars 15<br />
                                         1867 Ollon, Suisse
@@ -232,11 +240,11 @@ export default function ContactSection() {
                                     <Clock className="w-6 h-6 text-red-600" />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-gray-900 mb-1">Horaires</h3>
+                                    <h3 className="font-semibold text-gray-900 mb-1">{l?.timetitle}</h3>
                                     <p className="text-gray-600">
-                                        Lundi - Vendredi : 8h00 - 20h00<br />
-                                        Samedi : 7h00 - 20h00<br />
-                                        Dimanche : 7h00 - 20h00
+                                        {l?.time1}<br />
+                                        {l?.time2}<br />
+                                        {l?.time3}
                                     </p>
                                 </div>
                             </div>
@@ -245,27 +253,26 @@ export default function ContactSection() {
                         {/* Free Consultation Box */}
                         <div className="mt-8 bg-red-50 border-2 border-red-100 rounded-lg p-6">
                             <h3 className="text-xl font-bold text-gray-900 mb-3">
-                                Consultation gratuite
+                                {l?.box1title}
                             </h3>
                             <p className="text-gray-600 mb-3">
-                                Profitez d'une consultation gratuite pour évaluer vos besoins informatiques
-                                et découvrir comment SwitzerIT peut vous accompagner.
+                                {l?.box1des}
                             </p>
                             <p className="text-red-600 font-semibold text-sm">
-                                Sans engagement • Réponse sous 24h
+                                {l?.box1span}
                             </p>
                         </div>
 
                         {/* Emergency Support */}
                         <div className="mt-6 bg-gray-50 rounded-lg p-6">
                             <h3 className="text-xl font-bold text-gray-900 mb-3">
-                                Support d'urgence
+                                {l?.box2title}
                             </h3>
                             <p className="text-gray-600 mb-2">
-                                Pour nos clients en infogérance, un support d'urgence 24/7 est disponible.
+                                {l?.box2des}
                             </p>
                             <p className="text-gray-700">
-                                Numéro d'urgence : <a href="tel:+41779666229" className="text-red-600 hover:text-red-700 font-semibold">+41 77 966 62 29</a>
+                                {l?.box3span} <a href="tel:+41779666229" className="text-red-600 hover:text-red-700 font-semibold">+41 77 966 62 29</a>
                             </p>
                         </div>
                     </motion.div>

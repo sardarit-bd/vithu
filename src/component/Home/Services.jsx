@@ -1,28 +1,153 @@
 "use client";
 
-import useServicesStore from "@/stores/servicesStore";
+import en from "@/content/services/en.json";
+import fr from "@/content/services/fr.json";
+import useLan from "@/stores/store/useLan";
+import lanChooser from "@/utiliy/lanChooser";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Cloud, FolderKanban, Headphones, Monitor, Shield, Wifi, Wrench } from 'lucide-react';
+import ContactUsBtn from "../ContactUsBtn";
+
 
 export default function ITServicesSection() {
-    const { services } = useServicesStore();
+
+    const { ln } = useLan();
+    const l = lanChooser(ln, fr, en);
+
+
+    const services = [
+        {
+            icon: Headphones,
+            title: l?.service1Title,
+            description: l?.service1Description,
+            color: "bg-red-50",
+            prestations: [
+                l?.service1List1,
+                l?.service1List2,
+                l?.service1List3,
+                l?.service1List4,
+                l?.service1List5,
+                l?.service1List6,
+                l?.service1List7
+            ],
+            isLeft: true,
+            image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769512983/itsupport_mklkjg.jpg"
+
+        },
+        {
+            icon: Wrench,
+            title: l?.service2Title,
+            description: l?.service2Description,
+            color: "bg-red-50",
+            prestations: [
+                l?.service2List1,
+                l?.service2List2,
+                l?.service2List3,
+                l?.service2List4,
+                l?.service2List5,
+                l?.service2List6
+            ],
+            isLeft: false,
+            image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769511869/maintaince_kn9cfu.jpg"
+
+        },
+        {
+            icon: Shield,
+            title: l?.service3Title,
+            description: l?.service3Description,
+            color: "bg-red-50",
+            prestations: [
+                l?.service3List1,
+                l?.service3List2,
+                l?.service3List3,
+                l?.service3List4,
+                l?.service3List5,
+                l?.service3List6
+            ],
+            isLeft: true,
+            image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769511870/protected_nwvutf.jpg"
+        },
+        {
+            icon: Wifi,
+            title: l?.service4Title,
+            description: l?.service4Description,
+            color: "bg-red-50",
+            prestations: [
+                l?.service4List1,
+                l?.service4List2,
+                l?.service4List3,
+                l?.service4List4,
+                l?.service4List5,
+                l?.service4List6,
+                l?.service4List7,
+                l?.service4List8
+            ],
+            isLeft: false,
+            image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769511867/network_mj4gw1.jpg"
+
+        },
+        {
+            icon: Cloud,
+            title: l?.service5Title,
+            description: l?.service5Description,
+            color: "bg-red-50",
+            prestations: [
+                l?.service5List1,
+                l?.service5List2,
+                l?.service5List3,
+                l?.service5List4,
+                l?.service5List5,
+            ],
+            isLeft: true,
+            image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769511863/cloud_cqnltk.jpg"
+
+        },
+        {
+            icon: Monitor,
+            title: l?.service6Title,
+            description: l?.service6Description,
+            color: "bg-red-50",
+            prestations: [
+                l?.service6List1,
+                l?.service6List2,
+                l?.service6List3,
+                l?.service6List4,
+                l?.service6List5,
+            ],
+            isLeft: false,
+            image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769601509/balok_hv8rkj.jpg"
+        },
+        {
+            icon: FolderKanban,
+            title: l?.service7Title,
+            description: l?.service7Description,
+            color: "bg-red-50",
+            prestations: [
+                l?.service7List1,
+                l?.service7List2,
+                l?.service7List3,
+                l?.service7List4,
+            ],
+            isLeft: true,
+            image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769512985/custom_1_zgou8o.jpg"
+
+        }
+    ]
+
 
     return (
         <section className="py-12 px-4 bg-white">
-            <div className="max-w-7xl mx-auto px-3">
+            <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        Nos services informatiques
+                        {l?.pageTitle}
                     </h2>
-                    <p className="text-gray-600 max-w-3xl mx-auto">
-                        Des solutions informatiques qui simplifient vraiment votre quotidien
+                    <p className="max-w-3xl text-xl text-gray-500 font-medium mx-auto">
+                        {l?.landingdes1}
                     </p>
-                    <p className="text-gray-500 text-sm mt-2 max-w-3xl mx-auto">
-                        Que vous soyez une entreprise à la recherche d'un partenaire IT fiable ou un
-                        particulier nécessitant un accompagnement technique, SwitzerIT met son expertise
-                        à votre service. Nous intervenons sur l'ensemble de vos problématiques
-                        informatiques avec professionnalisme et réactivité.
+                    <p className="text-md mt-2 max-w-3xl font-medium text-gray-400 mx-auto">
+                        {l?.landingdes2}
                     </p>
                 </div>
 
@@ -42,15 +167,43 @@ export default function ITServicesSection() {
                                 key={index}
                                 className="p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow duration-300"
                             >
-                                <div className={`w-12 h-12 ${service.color} rounded-lg flex items-center justify-center mb-4`}>
+                                <motion.div
+                                    whileInView={{
+                                        scale: [1, 1, 1],
+                                        rotate: [0, 0, 180, 180, 0],
+                                        borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        ease: "easeInOut",
+                                        times: [0, 0.2, 0.5, 0.8, 1],
+                                        repeatDelay: 1,
+                                    }}
+                                    className={`w-12 h-12 ${service.color} rounded-lg flex items-center justify-center mb-4`}>
                                     <IconComponent className="w-6 h-6 text-red-600" />
-                                </div>
-                                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                                </motion.div>
+                                <motion.h3
+                                    initial={{ opacity: 0, x: -45 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                        duration: 1,
+                                        delay: 0.2,
+                                        ease: "easeOut"
+                                    }}
+                                    className="text-lg font-semibold text-gray-900 mb-2">
                                     {service.title}
-                                </h3>
-                                <p className="text-gray-600 text-sm leading-relaxed">
+                                </motion.h3>
+                                <motion.p
+                                    initial={{ opacity: 0, x: -45 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                        duration: 1,
+                                        delay: 0.4,
+                                        ease: "easeOut"
+                                    }}
+                                    className="font-medium text-gray-400 leading-relaxed">
                                     {service.description}
-                                </p>
+                                </motion.p>
                             </motion.div>
                         );
                     })}
@@ -65,9 +218,9 @@ export default function ITServicesSection() {
                         delay: 0.6,
                         ease: "easeOut"
                     }}
-                    className="bg-red-50 border-l-4 border-red-600 rounded-lg p-6">
+                    className="bg-red-50 border-l-4 border-red-600 rounded-lg p-3 py-6 md:p-6">
                     <div className="flex items-start">
-                        <div className="flex-shrink-0">
+                        <div className="hidden md:block flex-shrink-0">
                             <svg
                                 className="w-6 h-6 text-red-500"
                                 fill="none"
@@ -82,16 +235,14 @@ export default function ITServicesSection() {
                                 />
                             </svg>
                         </div>
-                        <div className="ml-4">
+                        <div className="ml-1 md:ml-4">
                             <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                                💡 Vous avez un besoin spécifique ?
+                                {l?.landingctatitle}
                             </h4>
-                            <p className="text-gray-700 text-sm leading-relaxed">
-                                Cette liste n'est pas exhaustive. SwitzerIT vous accompagne sur l'ensemble de vos
-                                besoins informatiques, quels qu'ils soient. N'hésitez pas à nous contacter pour
-                                discuter de votre projet, même s'il ne figure pas dans cette liste. Notre équipe
-                                d'experts trouvera la solution adaptée à votre situation. <Link className="text-red-600 font-semibold text-md" href="/contact">Contactez-nous</Link>
+                            <p className="font-medium text-gray-400 leading-relaxed">
+                                {l?.landingctades}
                             </p>
+                            <ContactUsBtn c={l?.ctades2Link} />
                         </div>
                     </div>
                 </motion.div>

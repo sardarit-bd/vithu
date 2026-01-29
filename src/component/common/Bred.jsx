@@ -37,10 +37,10 @@ export default function Breadcrumb({
                             ease: "easeOut"
                         }}
                     >
-                        <p className="text-lg md:text-xl text-gray-700 mb-6 text-justify">
+                        <p className="text-lg lg:text-xl text-gray-500 font-medium mb-5 text-justify">
                             {subtitle}
                         </p>
-                        <p className="text-sm md:text-md lg:text-md text-gray-700 mb-6 text-justify">
+                        <p className="text-sm md:text-md lg:text-lg font-medium text-gray-400 text-justify">
                             {extra}
                         </p>
                     </motion.div>

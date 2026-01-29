@@ -1,24 +1,35 @@
 'use client'
+import en from '@/content/footer/en.json';
+import fr from '@/content/footer/fr.json';
+import useLan from '@/stores/store/useLan';
+import lanChooser from '@/utiliy/lanChooser';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+
 export default function Footer() {
+
+    const { ln } = useLan();
+    const currentLan = lanChooser(ln, fr, en);
+
+
+
     const navigation = [
-        { label: 'Accueil', href: '/' },
-        { label: 'Services', href: '/services' },
-        { label: 'À propos', href: '/about' },
-        { label: 'Contact', href: '/contact' }
+        { label: currentLan.nav1, href: '/' },
+        { label: currentLan.nav2, href: '/services' },
+        { label: currentLan.nav3, href: '/about' },
+        { label: currentLan.nav4, href: '/contact' }
     ];
 
     const services = [
-        { label: 'Assistance et support', href: '/services#0' },
-        { label: 'Infogérance', href: '/services#1' },
-        { label: 'Cybersécurité', href: '/services#2' },
-        { label: 'Réseaux & Wi-Fi', href: '/services#3' },
-        { label: 'Cloud & collaboration', href: '/services#4' },
-        { label: 'Solutions sur mesure', href: '/services#5' }
+        { label: currentLan.ser1, href: '/services#0' },
+        { label: currentLan.ser2, href: '/services#1' },
+        { label: currentLan.ser3, href: '/services#2' },
+        { label: currentLan.ser4, href: '/services#3' },
+        { label: currentLan.ser5, href: '/services#4' },
+        { label: currentLan.ser6, href: '/services#5' }
     ];
 
     return (
@@ -53,7 +64,7 @@ export default function Footer() {
                                 ease: "easeOut"
                             }}
                             className="text-md text-gray-700 leading-relaxed">
-                            Votre partenaire informatique de confiance en Suisse. Solutions professionnelles pour entreprises et particuliers.
+                            {currentLan?.description}
                         </motion.p>
                     </div>
                     <div>
@@ -196,7 +207,7 @@ export default function Footer() {
                             ease: "easeOut"
                         }}
                         className="text-md text-gray-700">
-                        © 2026 SwitzerIT. Tous droits réservés.
+                        {currentLan?.copy}
                     </motion.p>
                     <motion.div
                         initial={{ opacity: 0, x: -45 }}
@@ -211,13 +222,13 @@ export default function Footer() {
                             href="#"
                             className="text-md text-gray-700 hover:text-red-600 transition-all ease-in-out duration-300"
                         >
-                            Mentions légales
+                            {currentLan?.terms}
                         </a>
                         <a
                             href="#"
                             className="text-md text-gray-700 hover:text-red-600 transition-all ease-in-out duration-300"
                         >
-                            Politique de confidentialité
+                            {currentLan?.privacy}
                         </a>
                     </motion.div>
                 </div>

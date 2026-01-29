@@ -1,15 +1,17 @@
 'use client'
 
-import { useState } from "react";
+import useLan from "@/stores/store/useLan";
 
 const LanguessageShifter = () => {
 
-    const [lan, setlan] = useState('en');
+    const { ln, setln } = useLan();
 
     return (
-        <div className="flex items-center border border-red-600 rounded-xl">
-            <button onClick={() => { setlan("en") }} className={`px-2 text-sm cursor-pointer ${lan === "en" && "bg-red-600 text-white rounded-l-lg"}`}>En</button>
-            <button onClick={() => { setlan("fr") }} className={`px-2 text-sm cursor-pointer ${lan === "fr" && "bg-red-600 text-white rounded-r-lg"}`}>Fr</button>
+        <div className="flex items-center bg-red-200 rounded-full">
+            <button
+                onClick={() => { setln("fr") }} className={`h-[25px] w-[25px] md:h-[30px] md:w-[30px] text-sm md:text-md flex items-center justify-center p-1 text-md cursor-pointer transition-all duration-300 ease-in-out ${ln === "fr" && "bg-red-600 text-white rounded-full"}`}>Fr</button>
+            <button
+                onClick={() => { setln("en") }} className={`h-[25px] w-[25px] md:h-[30px] md:w-[30px] text-sm md:text-md flex items-center justify-center p-1 text-md cursor-pointer transition-all duration-300 ease-in-out ${ln === "en" && "bg-red-600 text-white rounded-full"}`}>En</button>
         </div>
     )
 }

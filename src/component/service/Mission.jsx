@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 
-export default function MissionSection() {
+export default function MissionSection({ m }) {
     return (
-        <section className="py-16">
+        <section className="py-8">
             <div className="max-w-7xl mx-auto px-3">
                 <div
 
-                    className="bg-red-600 rounded-3xl px-8 py-12 md:px-16 md:py-16 text-white text-center">
+                    className="rounded-3xl px-8 py-12 md:px-16 md:py-16 text-center">
                     <motion.h2
                         initial={{ opacity: 0, y: 45 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -17,8 +17,8 @@ export default function MissionSection() {
                             delay: 0.1,
                             ease: "easeOut"
                         }}
-                        className="text-4xl md:text-5xl font-bold mb-8">
-                        Notre mission
+                        className="text-4xl md:text-5xl font-bold mb-8 text-black">
+                        {m?.missiontitle}
                     </motion.h2>
 
                     <motion.p
@@ -29,10 +29,8 @@ export default function MissionSection() {
                             delay: 0.2,
                             ease: "easeOut"
                         }}
-                        className="text-lg md:text-xl leading-relaxed mb-6 max-w-4xl mx-auto">
-                        Permettre à chaque entreprise et particulier de bénéficier d'une informatique fiable,
-                        sécurisée et performante, en offrant un accompagnement professionnel et des
-                        solutions adaptées à leurs besoins spécifiques.
+                        className="text-lg md:text-xl font-medium text-gray-500 leading-relaxed mb-6 max-w-4xl mx-auto">
+                        {m?.missitondescription1}
                     </motion.p>
 
                     <motion.p
@@ -43,10 +41,8 @@ export default function MissionSection() {
                             delay: 0.3,
                             ease: "easeOut"
                         }}
-                        className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
-                        Nous croyons que la technologie doit être au service de l'humain et non l'inverse.
-                        C'est pourquoi nous mettons un point d'honneur à proposer des solutions compréhensibles,
-                        accessibles et parfaitement adaptées à chaque situation. Votre réussite est notre objectif.
+                        className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
+                        {m?.missitondescription2}
                     </motion.p>
                 </div>
             </div>
