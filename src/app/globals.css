@@ -52,7 +52,7 @@ body {
 }
 
 .heroBG {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.696), rgba(0, 0, 0, 0)), url("https://res.cloudinary.com/dg83pvgls/image/upload/v1769591832/2151305304_hh2rrj.jpg");
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.696), rgba(0, 0, 0, 0.235), rgba(0, 0, 0, 0)), url("https://res.cloudinary.com/dg83pvgls/image/upload/v1769591832/2151305304_hh2rrj.jpg");
   background-position: top center !important;
   background-repeat: no-repeat;
 }

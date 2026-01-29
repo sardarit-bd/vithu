@@ -1,15 +1,40 @@
 "use client"
-import useValueStore from "@/stores/valueStore";
 import { motion } from "framer-motion";
+import { Award, Heart, Target, Users } from 'lucide-react';
 
-export default function ValuesSection() {
-    const { services } = useValueStore();
+export default function ValuesSection({ v }) {
+
+
+    const services = [
+        {
+            icon: Target,
+            title: v?.vCard1Title,
+            description: v?.vCard1Description
+        },
+        {
+            icon: Heart,
+            title: v?.vCard2Title,
+            description: v?.vCard2Description
+        },
+        {
+            icon: Award,
+            title: v?.vCard3Title,
+            description: v?.vCard3Description
+        },
+        {
+            icon: Users,
+            title: v?.vCard4Title,
+            description: v?.vCard4Description
+        }
+    ]
+
+
 
     return (
         <section className="py-16 bg-gray-50">
             <div className="max-w-7xl mx-auto px-3">
                 <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
-                    Nos valeurs
+                    {v?.valueTile}
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -44,7 +69,7 @@ export default function ValuesSection() {
                                         delay: 0.2 * index,
                                         ease: "easeOut"
                                     }}
-                                    className="text-gray-600 leading-relaxed">
+                                    className="text-lg text-gray-500 font-medium leading-relaxed">
                                     {value.description}
                                 </motion.p>
                             </div>

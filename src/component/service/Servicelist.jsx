@@ -1,12 +1,133 @@
 "use client"; // optional, but good if using hooks later
 
-import useServicesStore from "@/stores/servicesStore";
 import { motion } from "framer-motion";
+import { Cloud, FolderKanban, Headphones, Monitor, Shield, Wifi, Wrench } from 'lucide-react';
 import Image from "next/image";
-import Link from "next/link";
+import ContactUsBtn from "../ContactUsBtn";
 
-export default function ServiceCards() {
-    const { services } = useServicesStore();
+export default function ServiceCards({ l }) {
+
+
+    const services = [
+        {
+            icon: Headphones,
+            title: l?.service1Title,
+            description: l?.service1Description,
+            color: "bg-red-50",
+            prestations: [
+                l?.service1List1,
+                l?.service1List2,
+                l?.service1List3,
+                l?.service1List4,
+                l?.service1List5,
+                l?.service1List6,
+                l?.service1List7
+            ],
+            isLeft: true,
+            image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769512983/itsupport_mklkjg.jpg"
+
+        },
+        {
+            icon: Wrench,
+            title: l?.service2Title,
+            description: l?.service2Description,
+            color: "bg-red-50",
+            prestations: [
+                l?.service2List1,
+                l?.service2List2,
+                l?.service2List3,
+                l?.service2List4,
+                l?.service2List5,
+                l?.service2List6
+            ],
+            isLeft: false,
+            image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769511869/maintaince_kn9cfu.jpg"
+
+        },
+        {
+            icon: Shield,
+            title: l?.service3Title,
+            description: l?.service3Description,
+            color: "bg-red-50",
+            prestations: [
+                l?.service3List1,
+                l?.service3List2,
+                l?.service3List3,
+                l?.service3List4,
+                l?.service3List5,
+                l?.service3List6
+            ],
+            isLeft: true,
+            image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769511870/protected_nwvutf.jpg"
+        },
+        {
+            icon: Wifi,
+            title: l?.service4Title,
+            description: l?.service4Description,
+            color: "bg-red-50",
+            prestations: [
+                l?.service4List1,
+                l?.service4List2,
+                l?.service4List3,
+                l?.service4List4,
+                l?.service4List5,
+                l?.service4List6,
+                l?.service4List7,
+                l?.service4List8
+            ],
+            isLeft: false,
+            image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769511867/network_mj4gw1.jpg"
+
+        },
+        {
+            icon: Cloud,
+            title: l?.service5Title,
+            description: l?.service5Description,
+            color: "bg-red-50",
+            prestations: [
+                l?.service5List1,
+                l?.service5List2,
+                l?.service5List3,
+                l?.service5List4,
+                l?.service5List5,
+            ],
+            isLeft: true,
+            image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769511863/cloud_cqnltk.jpg"
+
+        },
+        {
+            icon: Monitor,
+            title: l?.service6Title,
+            description: l?.service6Description,
+            color: "bg-red-50",
+            prestations: [
+                l?.service6List1,
+                l?.service6List2,
+                l?.service6List3,
+                l?.service6List4,
+                l?.service6List5,
+            ],
+            isLeft: false,
+            image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769601509/balok_hv8rkj.jpg"
+        },
+        {
+            icon: FolderKanban,
+            title: l?.service7Title,
+            description: l?.service7Description,
+            color: "bg-red-50",
+            prestations: [
+                l?.service7List1,
+                l?.service7List2,
+                l?.service7List3,
+                l?.service7List4,
+            ],
+            isLeft: true,
+            image: "https://res.cloudinary.com/dg83pvgls/image/upload/v1769512985/custom_1_zgou8o.jpg"
+
+        }
+    ]
+
+
     return (
         <div className="w-full bg-white py-12">
             <div className="max-w-7xl mx-auto space-y-8 px-3">
@@ -16,9 +137,17 @@ export default function ServiceCards() {
                         <div id={index - 1} key={index} className="bg-gray-50 rounded-lg p-0 sm:p-2 md:p-5 lg:p-8 mb-10">
                             <div className="flex flex-col lg:flex-row justify-between gap-8">
                                 {/* Left Column - Title and Description */}
-                                <div className={`lg:w-2/5 ${service?.isLeft ? "order-1 lg:order-1" : " order-2 lg:order-2"}`}>
+                                <motion.div
+                                    initial={{ opacity: 0, y: -15 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{
+                                        duration: 0.4,
+                                        delay: 0.3,
+                                        ease: "easeOut"
+                                    }}
+                                    className={`lg:w-2/5 ${service?.isLeft ? "order-1 lg:order-1" : " order-2 lg:order-2"}`}>
                                     <Image src={service?.image} alt={service.title} width={1000} height={1000} className="h-[100%] object-cover rounded-md" />
-                                </div>
+                                </motion.div>
 
                                 {/* Right Column - Prestations */}
                                 <div className={`hello lg:w-3/5 rounded-lg ${service?.isLeft ? "order-2 lg:order-2" : "order-2 lg:order-1"}`}>
@@ -47,7 +176,7 @@ export default function ServiceCards() {
                                                 delay: 0.1,
                                                 ease: "easeOut"
                                             }}
-                                            className="text-md text-gray-600 leading-relaxed">
+                                            className="text-xl font-medium text-gray-500 leading-relaxed">
                                             {service.description}
                                         </motion.p>
                                     </div>
@@ -59,7 +188,7 @@ export default function ServiceCards() {
                                             delay: 0.1,
                                             ease: "easeOut"
                                         }}
-                                        className="text-sm font-semibold mb-3">
+                                        className="text-md font-semibold text-gray-500 mb-3">
                                         Prestations incluses :
                                     </motion.h4>
                                     <ul className="space-y-2 flex flex-col gap-2">
@@ -73,10 +202,10 @@ export default function ServiceCards() {
                                                     ease: "easeOut"
                                                 }}
                                                 key={idx} className="flex items-center gap-2">
-                                                <span className="text-red-600 mt-1 flex-shrink-0">
-                                                    <div className="bg-red-300 h-[12px] w-[12px] rounded-full" />
+                                                <span className="text-red-600 flex-shrink-0">
+                                                    <div className="bg-red-300 h-[14px] w-[14px] rounded-full" />
                                                 </span>
-                                                <span className="text-sm text-gray-700">{prestation}</span>
+                                                <span className="text-md text-gray-600">{prestation}</span>
                                             </motion.li>
                                         ))}
                                     </ul>
@@ -87,16 +216,19 @@ export default function ServiceCards() {
                 })}
 
                 {/* Bottom CTA Section */}
-                <div className="bg-pink-50 rounded-lg p-8 text-center">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                        Vous ne trouvez pas ce que vous cherchez ?
+                <div className="bg-pink-50 rounded-lg p-4 md:p-8 text-center">
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                        {l.ctatitle}
                     </h3>
-                    <p className="text-sm text-gray-700 mb-4 max-w-3xl mx-auto">
-                        Cette liste n'est pas exhaustive. SwitzerIT vous accompagne sur l'ensemble de vos besoins informatiques. Chaque entreprise et chaque particulier a des besoins spécifiques. Notre équipe prend le temps d'écouter vos exigences pour vous proposer des solutions sur mesure, parfaitement adaptées à votre situation. Que votre projet soit simple ou complexe, standard ou atypique, nous avons l'expertise pour vous accompagner.
+                    <p className="text-md text-gray-700 mb-4 max-w-3xl mx-auto">
+                        {l.ctades}
                     </p>
-                    <p className="text-sm font-semibold text-gray-900">
-                        N'hésitez pas à nous contacter pour discuter de vos besoins spécifiques. <Link className="text-red-600 font-bold text-lg" href="/contact">Contactez-nous</Link>
+                    <p className="text-md font-bold text-gray-500">
+                        {l.ctades2}
+                        {/* <Link className="text-red-600 font-bold text-lg" href="/contact">{l.ctades2Link}</Link> */}
                     </p>
+
+                    <ContactUsBtn c={l?.ctades2Link} />
                 </div>
             </div>
         </div>

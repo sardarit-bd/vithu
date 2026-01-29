@@ -1,34 +1,47 @@
 'use client'
 
+import en from "@/content/whychooseus/en.json";
+import fr from "@/content/whychooseus/fr.json";
+import useLan from '@/stores/store/useLan';
+import lanChooser from '@/utiliy/lanChooser';
 import { motion } from 'framer-motion';
 import { BookOpen, Building2, Settings, Shield, Users } from 'lucide-react';
 
+
 export default function WhyChooseSwitzerIT() {
+
+
+
+    const { ln } = useLan();
+    const currentlan = lanChooser(ln, fr, en);
+
+
+
     const features = [
         {
             icon: <Building2 className="w-6 h-6" />,
-            title: "Approche professionnelle et structurée",
-            description: "Des méthodes claires et éprouvées pour garantir des prestations fiables et cohérentes."
+            title: currentlan.card1Title,
+            description: currentlan?.card1Description
         },
         {
             icon: <Shield className="w-6 h-6" />,
-            title: "Sécurité intégrée par défaut",
-            description: "La sécurité est incluse dans toutes nos solutions, sans compromis ni option cachée."
+            title: currentlan.card2Title,
+            description: currentlan?.card2Description
         },
         {
             icon: <BookOpen className="w-6 h-6" />,
-            title: "Transparence et pédagogie",
-            description: "Explications claires et documentation complète à chaque étape."
+            title: currentlan.card3Title,
+            description: currentlan?.card2Description
         },
         {
             icon: <Users className="w-6 h-6" />,
-            title: "Un interlocuteur unique",
-            description: "Une personne de contact dédiée qui connaît votre entreprise et vos besoins."
+            title: currentlan.card3Title,
+            description: currentlan?.card3Description
         },
         {
             icon: <Settings className="w-6 h-6" />,
-            title: "Solutions adaptées à chaque client",
-            description: "Approche personnalisée, pas de solution standardisée imposée."
+            title: currentlan.card4Title,
+            description: currentlan?.card4Description
         }
     ];
 
@@ -38,13 +51,13 @@ export default function WhyChooseSwitzerIT() {
                 {/* Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                        Pourquoi choisir SwitzerIT ?
+                        {currentlan?.sectionTitle}
                     </h2>
-                    <p className="text-lg text-gray-600 mb-2">
-                        Notre engagement pour votre réussite
+                    <p className="max-w-3xl text-xl text-gray-500 font-medium mx-auto">
+                        {currentlan?.sectionSubTitle}
                     </p>
-                    <p className="text-sm text-gray-500 max-w-3xl mx-auto">
-                        Faire appel à SwitzerIT, c'est choisir un partenaire informatique qui s'appuie sur l'écoute, la rigueur et la qualité de service. Notre approche est structurée, orientée résultats et adaptée à vos priorités. Découvrez ce qui fait notre différence.
+                    <p className="text-md mt-2 max-w-3xl font-medium text-gray-400 mx-auto">
+                        {currentlan?.sectionDescription}
                     </p>
                 </div>
 
@@ -62,15 +75,43 @@ export default function WhyChooseSwitzerIT() {
                             key={index}
                             className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
                         >
-                            <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center text-white mb-4">
+                            <motion.div
+                                whileInView={{
+                                    scale: [1, 1, 1],
+                                    rotate: [0, 0, 180, 180, 0],
+                                    borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    ease: "easeInOut",
+                                    times: [0, 0.2, 0.5, 0.8, 1],
+                                    repeatDelay: 1,
+                                }}
+                                className="w-12 h-12 bg-red-600 flex items-center justify-center text-white mb-4">
                                 {feature.icon}
-                            </div>
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                            </motion.div>
+                            <motion.h3
+                                initial={{ opacity: 0, x: -45 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{
+                                    duration: 1,
+                                    delay: 0.4,
+                                    ease: "easeOut"
+                                }}
+                                className="text-lg font-semibold text-gray-900 mb-2">
                                 {feature.title}
-                            </h3>
-                            <p className="text-sm text-gray-600">
+                            </motion.h3>
+                            <motion.p
+                                initial={{ opacity: 0, x: -45 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{
+                                    duration: 1,
+                                    delay: 0.6,
+                                    ease: "easeOut"
+                                }}
+                                className="font-medium text-gray-400 leading-relaxed">
                                 {feature.description}
-                            </p>
+                            </motion.p>
                         </motion.div>
                     ))}
                 </div>
@@ -85,11 +126,11 @@ export default function WhyChooseSwitzerIT() {
                         ease: "easeOut"
                     }}
                     className="bg-white rounded-lg p-8 shadow-sm">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4 text-center">
-                        Une expertise locale et accessible
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-4 text-center">
+                        {currentlan?.ctaTitle}
                     </h3>
-                    <p className="text-sm text-gray-600 text-center max-w-4xl mx-auto leading-relaxed">
-                        Basés en Suisse, nous comprenons les exigences de qualité et de fiabilité du marché suisse. Notre équipe locale parle votre langue (français, anglais) et connaît les spécificités des entreprises suisses. Nous combinons l'excellence technique avec une relation de proximité pour vous offrir un service personnalisé et réactif. Votre satisfaction est notre priorité.
+                    <p className="font-medium text-gray-400 text-center max-w-4xl mx-auto leading-relaxed">
+                        {currentlan?.ctaDescription}
                     </p>
                 </motion.div>
             </div>
