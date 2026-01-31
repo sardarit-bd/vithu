@@ -1,8 +1,8 @@
 {
     "freeConsultation": {
-        "title": "Need advice or professional support?",
-        "subtitle": "Take advantage of a free consultation to assess your IT needs.",
-        "description": "Our experts analyze your current situation, identify your needs, and propose tailored solutions with no commitment on your part. A 30 to 45-minute session that can transform your IT setup.",
+        "title": "Need expert IT advice?",
+        "subtitle": "Take advantage of a free consultation to review your IT needs.",
+        "description": "Our experts review your current IT environment and propose tailored solutions, with no commitment on your part. A 30 to 45-minute session designed to help you make the right decisions for your IT setup.",
         "cta": {
             "label": "Schedule a free consultation",
             "link": ""

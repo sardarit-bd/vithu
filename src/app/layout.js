@@ -1,5 +1,3 @@
-
-import Drag from "@/component/Drag";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -74,7 +72,6 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} ${Comic.variable} ${Aptos.variable} antialiased`}
       >
         {children}
-        <Drag />
       </body>
     </html>
   );

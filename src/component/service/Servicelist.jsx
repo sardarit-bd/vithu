@@ -134,7 +134,7 @@ export default function ServiceCards({ l }) {
                 {services.map((service, index) => {
                     const IconComponent = service.icon;
                     return (
-                        <div id={index + 1} key={index} className="bg-gray-50 rounded-lg p-0 sm:p-2 md:p-5 lg:p-8 mb-10">
+                        <div id={index} key={index} className="bg-gray-50 rounded-lg p-0 sm:p-2 md:p-5 lg:p-8 mb-10 scroll-mt-65">
                             <div className="flex flex-col lg:flex-row justify-between gap-8">
                                 {/* Left Column - Title and Description */}
                                 <motion.div
@@ -189,7 +189,7 @@ export default function ServiceCards({ l }) {
                                             ease: "easeOut"
                                         }}
                                         className="text-md font-semibold text-gray-500 mb-3">
-                                        Prestations incluses :
+                                        Included services:
                                     </motion.h4>
                                     <ul className="space-y-2 flex flex-col gap-2">
                                         {service.prestations.map((prestation, idx) => (
@@ -220,9 +220,30 @@ export default function ServiceCards({ l }) {
                     <h3 className="text-2xl font-semibold text-gray-900 mb-3">
                         {l.ctatitle}
                     </h3>
-                    <p className="text-md text-gray-700 mb-4 max-w-3xl mx-auto">
+                    {/* <p className="text-md text-gray-700 mb-4 max-w-3xl mx-auto">
                         {l.ctades}
+                    </p> */}
+
+                    <p className="text-md text-gray-700 mb-4 max-w-3xl mx-auto">
+                        {(() => {
+                            const text = l.ctades || "";
+                            const breakAfter = 105;
+
+                            if (text.length <= breakAfter) return text;
+
+                            const firstLine = text.slice(0, breakAfter);
+                            const secondLine = text.slice(breakAfter);
+
+                            return (
+                                <>
+                                    {firstLine}
+                                    <br />
+                                    {secondLine}
+                                </>
+                            );
+                        })()}
                     </p>
+
                     <p className="text-md font-bold text-gray-500">
                         {l.ctades2}
                         {/* <Link className="text-red-600 font-bold text-lg" href="/contact">{l.ctades2Link}</Link> */}

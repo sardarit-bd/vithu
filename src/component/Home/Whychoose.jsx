@@ -35,13 +35,13 @@ export default function WhyChooseSwitzerIT() {
         },
         {
             icon: <Users className="w-6 h-6" />,
-            title: currentlan.card3Title,
-            description: currentlan?.card3Description
+            title: currentlan.card4Title,
+            description: currentlan?.card4Description
         },
         {
             icon: <Settings className="w-6 h-6" />,
-            title: currentlan.card4Title,
-            description: currentlan?.card4Description
+            title: currentlan.card5Title,
+            description: currentlan?.card5Description
         }
     ];
 
@@ -56,7 +56,7 @@ export default function WhyChooseSwitzerIT() {
                     <p className="max-w-3xl text-xl text-gray-500 font-medium mx-auto">
                         {currentlan?.sectionSubTitle}
                     </p>
-                    <p className="text-md mt-2 max-w-3xl font-medium text-gray-400 mx-auto">
+                    <p className="text-md mt-2 max-w-3xl font-medium text-gray-800 mx-auto">
                         {currentlan?.sectionDescription}
                     </p>
                 </div>

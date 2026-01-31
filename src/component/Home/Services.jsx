@@ -6,6 +6,7 @@ import useLan from "@/stores/store/useLan";
 import lanChooser from "@/utiliy/lanChooser";
 import { motion } from "framer-motion";
 import { Cloud, FolderKanban, Headphones, Monitor, Shield, Wifi, Wrench } from 'lucide-react';
+import Link from "next/link";
 import ContactUsBtn from "../ContactUsBtn";
 
 
@@ -156,55 +157,60 @@ export default function ITServicesSection() {
                     {services.map((service, index) => {
                         const IconComponent = service.icon;
                         return (
-                            <motion.div
-                                initial={{ opacity: 0, y: 45 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{
-                                    duration: 1,
-                                    delay: 0.1,
-                                    ease: "easeOut"
-                                }}
-                                key={index}
-                                className="p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow duration-300"
-                            >
+                            <Link href={`/services#${index++}`}>
                                 <motion.div
-                                    whileInView={{
-                                        scale: [1, 1, 1],
-                                        rotate: [0, 0, 180, 180, 0],
-                                        borderRadius: ["0%", "0%", "50%", "50%", "0%"],
-                                    }}
+                                    initial={{ opacity: 0, y: 45 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
                                     transition={{
-                                        duration: 2,
-                                        ease: "easeInOut",
-                                        times: [0, 0.2, 0.5, 0.8, 1],
-                                        repeatDelay: 1,
+                                        duration: 1,
+                                        delay: 0.1,
+                                        ease: "easeOut"
                                     }}
-                                    className={`w-12 h-12 ${service.color} rounded-lg flex items-center justify-center mb-4`}>
-                                    <IconComponent className="w-6 h-6 text-red-600" />
+                                    key={index}
+                                    className="p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow duration-300"
+                                >
+
+                                    <motion.div
+                                        whileInView={{
+                                            scale: [1, 1, 1],
+                                            rotate: [0, 0, 180, 180, 0],
+                                            borderRadius: ["0%", "0%", "50%", "50%", "0%"],
+                                        }}
+                                        transition={{
+                                            duration: 2,
+                                            ease: "easeInOut",
+                                            times: [0, 0.2, 0.5, 0.8, 1],
+                                            repeatDelay: 1,
+                                        }}
+                                        className={`w-12 h-12 ${service.color} rounded-lg flex items-center justify-center mb-4`}>
+                                        <IconComponent className="w-6 h-6 text-red-600" />
+                                    </motion.div>
+
+
+                                    <motion.h3
+                                        initial={{ opacity: 0, x: -45 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        transition={{
+                                            duration: 1,
+                                            delay: 0.2,
+                                            ease: "easeOut"
+                                        }}
+                                        className="text-lg font-semibold text-gray-900 mb-2">
+                                        {service.title}
+                                    </motion.h3>
+                                    <motion.p
+                                        initial={{ opacity: 0, x: -45 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        transition={{
+                                            duration: 1,
+                                            delay: 0.4,
+                                            ease: "easeOut"
+                                        }}
+                                        className="font-medium text-gray-400 leading-relaxed">
+                                        {service.description}
+                                    </motion.p>
                                 </motion.div>
-                                <motion.h3
-                                    initial={{ opacity: 0, x: -45 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{
-                                        duration: 1,
-                                        delay: 0.2,
-                                        ease: "easeOut"
-                                    }}
-                                    className="text-lg font-semibold text-gray-900 mb-2">
-                                    {service.title}
-                                </motion.h3>
-                                <motion.p
-                                    initial={{ opacity: 0, x: -45 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{
-                                        duration: 1,
-                                        delay: 0.4,
-                                        ease: "easeOut"
-                                    }}
-                                    className="font-medium text-gray-400 leading-relaxed">
-                                    {service.description}
-                                </motion.p>
-                            </motion.div>
+                            </Link>
                         );
                     })}
                 </div>
@@ -247,6 +253,6 @@ export default function ITServicesSection() {
                     </div>
                 </motion.div>
             </div>
-        </section>
+        </section >
     );
 }

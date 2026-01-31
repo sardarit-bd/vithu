@@ -85,15 +85,34 @@ export default function AboutSection({ w }) {
                             delay: 0.10,
                             ease: "easeOut"
                         }}
+                        className="relative w-full aspect-[4/3] md:aspect-auto md:h-full rounded-lg overflow-hidden shadow-sm"
+                    >
+                        <Image
+                            src="https://res.cloudinary.com/dg83pvgls/image/upload/v1769597931/switzer_it_room_vccbst.png"
+                            alt="Business professionals shaking hands"
+                            fill
+                            className="object-cover md:object-cover object-right"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                    </motion.div>
+
+                    {/* <motion.div
+                        initial={{ opacity: 0, x: -45 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                            duration: 0.2,
+                            delay: 0.10,
+                            ease: "easeOut"
+                        }}
                         className="relative h-96 md:h-full min-h-[400px] rounded-lg overflow-hidden shadow-sm">
                         <Image
                             src="https://res.cloudinary.com/dg83pvgls/image/upload/v1769597931/switzer_it_room_vccbst.png"
                             alt="Business professionals shaking hands"
                             fill
-                            className="object-cover object-right"
+                            className="object-contain md:object-cover object-right"
                             sizes="(max-width: 768px) 100vw, 50vw"
                         />
-                    </motion.div>
+                    </motion.div> */}
                 </div>
             </div>
         </section >

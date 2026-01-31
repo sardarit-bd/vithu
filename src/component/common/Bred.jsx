@@ -23,7 +23,7 @@ export default function Breadcrumb({
                         delay: 0.1,
                         ease: "easeOut"
                     }}
-                    className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 text-justify">
+                    className="text-center text-4xl md:text-5xl font-bold text-gray-900 mb-6 md:text-justify">
                     {title}
                 </motion.h1>
 

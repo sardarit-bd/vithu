@@ -15,7 +15,7 @@ export default function Hero() {
 
 
     return (
-        <section className="relative w-full h-[85vh] bg-cover bg-center object-top flex items-center heroBG">
+        <section className="h-[95vh] relative w-full md:h-[85vh] bg-cover bg-center object-top flex items-center heroBG">
 
             <div className="absolute inset-0 bg-black opacity-0"></div>
 
@@ -30,7 +30,7 @@ export default function Hero() {
                         ease: "easeOut"
                     }}
                     className="text-4xl md:text-6xl w-full lg:w-3/4 font-semibold mb-4">
-                    {currentLan.title}
+                    {currentLan.titleOne} <br /> {currentLan.titleTwo}
                 </motion.h1>
                 <motion.p
                     initial={{ opacity: 0, x: -45 }}
