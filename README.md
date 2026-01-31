@@ -28,7 +28,7 @@ You need to have Node.js and npm installed on your machine.
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/vithu.git
+    https://github.com/sardarit-bd/vithu.git
     cd vithu
     ```
 
