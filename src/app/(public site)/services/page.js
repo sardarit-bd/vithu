@@ -9,12 +9,8 @@ import lanChooser from "@/utiliy/lanChooser";
 
 export default function page() {
 
-
   const { ln } = useLan();
   const currentlan = lanChooser(ln, fr, en);
-
-
-
 
   return (
     <>

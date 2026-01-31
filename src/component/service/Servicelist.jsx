@@ -127,7 +127,6 @@ export default function ServiceCards({ l }) {
         }
     ]
 
-
     return (
         <div className="w-full bg-white py-12">
             <div className="max-w-7xl mx-auto space-y-8 px-3">
