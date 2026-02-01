@@ -6,6 +6,7 @@ import useLan from '@/stores/store/useLan';
 import lanChooser from '@/utiliy/lanChooser';
 import { motion } from 'framer-motion';
 import { BookOpen, Building2, Settings, Shield, Users } from 'lucide-react';
+import Image from "next/image";
 
 
 export default function WhyChooseSwitzerIT() {
@@ -21,27 +22,32 @@ export default function WhyChooseSwitzerIT() {
         {
             icon: <Building2 className="w-6 h-6" />,
             title: currentlan.card1Title,
-            description: currentlan?.card1Description
+            description: currentlan?.card1Description,
+            img: 'https://res.cloudinary.com/dg83pvgls/image/upload/v1769926429/Professional_and_Structured_Approach_xcdiv5.png'
         },
         {
             icon: <Shield className="w-6 h-6" />,
             title: currentlan.card2Title,
-            description: currentlan?.card2Description
+            description: currentlan?.card2Description,
+            img: 'https://res.cloudinary.com/dg83pvgls/image/upload/v1769926428/Security_Built_in_by_Default_ahsz3j.png'
         },
         {
             icon: <BookOpen className="w-6 h-6" />,
             title: currentlan.card3Title,
-            description: currentlan?.card2Description
+            description: currentlan?.card3Description,
+            img: 'https://res.cloudinary.com/dg83pvgls/image/upload/v1769926429/Transparency_and_Clarity_avj9xt.png'
         },
         {
             icon: <Users className="w-6 h-6" />,
             title: currentlan.card4Title,
-            description: currentlan?.card4Description
+            description: currentlan?.card4Description,
+            img: 'https://res.cloudinary.com/dg83pvgls/image/upload/v1769926428/A_Single_Point_of_Contact_pabikn.png'
         },
         {
             icon: <Settings className="w-6 h-6" />,
             title: currentlan.card5Title,
-            description: currentlan?.card5Description
+            description: currentlan?.card5Description,
+            img: 'https://res.cloudinary.com/dg83pvgls/image/upload/v1769926429/Solutions_Tailored_to_Each_Client_mgilqp.png'
         }
     ];
 
@@ -73,45 +79,43 @@ export default function WhyChooseSwitzerIT() {
                                 ease: "easeOut"
                             }}
                             key={index}
-                            className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
+                            className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden group"
                         >
                             <motion.div
-                                whileInView={{
-                                    scale: [1, 1, 1],
-                                    rotate: [0, 0, 180, 180, 0],
-                                    borderRadius: ["0%", "0%", "50%", "50%", "0%"],
-                                }}
+                                initial={{ opacity: 0, y: -15 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 transition={{
-                                    duration: 2,
-                                    ease: "easeInOut",
-                                    times: [0, 0.2, 0.5, 0.8, 1],
-                                    repeatDelay: 1,
+                                    duration: 0.4,
+                                    delay: 0.3,
+                                    ease: "easeOut"
                                 }}
-                                className="w-12 h-12 bg-red-600 flex items-center justify-center text-white mb-4">
-                                {feature.icon}
+                                className="w-full h-[200px] rounded-t-lg">
+                                <Image className="rounded-t-lg w-full h-full onject-cover bg-red-50 group-hover:scale-105 transition-all duration-500 ease-in-out" src={feature?.img} alt={feature.title} width={1000} height={1000} />
                             </motion.div>
-                            <motion.h3
-                                initial={{ opacity: 0, x: -45 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{
-                                    duration: 1,
-                                    delay: 0.4,
-                                    ease: "easeOut"
-                                }}
-                                className="text-lg font-semibold text-gray-900 mb-2">
-                                {feature.title}
-                            </motion.h3>
-                            <motion.p
-                                initial={{ opacity: 0, x: -45 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{
-                                    duration: 1,
-                                    delay: 0.6,
-                                    ease: "easeOut"
-                                }}
-                                className="font-medium text-gray-400 leading-relaxed">
-                                {feature.description}
-                            </motion.p>
+                            <div className="p-4">
+                                <motion.h3
+                                    initial={{ opacity: 0, x: -45 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                        duration: 1,
+                                        delay: 0.4,
+                                        ease: "easeOut"
+                                    }}
+                                    className="text-lg font-semibold text-gray-900 mb-2">
+                                    {feature.title}
+                                </motion.h3>
+                                <motion.p
+                                    initial={{ opacity: 0, x: -45 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                        duration: 1,
+                                        delay: 0.6,
+                                        ease: "easeOut"
+                                    }}
+                                    className="font-medium text-gray-400 leading-relaxed">
+                                    {feature.description}
+                                </motion.p>
+                            </div>
                         </motion.div>
                     ))}
                 </div>

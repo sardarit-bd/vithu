@@ -157,7 +157,7 @@ export default function ITServicesSection() {
                     {services.map((service, index) => {
                         const IconComponent = service.icon;
                         return (
-                            <Link href={`/services#${index++}`}>
+                            <Link key={index} href={`/services#section-${index + 1}`}>
                                 <motion.div
                                     initial={{ opacity: 0, y: 45 }}
                                     whileInView={{ opacity: 1, y: 0 }}
@@ -166,25 +166,13 @@ export default function ITServicesSection() {
                                         delay: 0.1,
                                         ease: "easeOut"
                                     }}
-                                    key={index}
                                     className="p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow duration-300"
                                 >
 
-                                    <motion.div
-                                        whileInView={{
-                                            scale: [1, 1, 1],
-                                            rotate: [0, 0, 180, 180, 0],
-                                            borderRadius: ["0%", "0%", "50%", "50%", "0%"],
-                                        }}
-                                        transition={{
-                                            duration: 2,
-                                            ease: "easeInOut",
-                                            times: [0, 0.2, 0.5, 0.8, 1],
-                                            repeatDelay: 1,
-                                        }}
+                                    <div
                                         className={`w-12 h-12 ${service.color} rounded-lg flex items-center justify-center mb-4`}>
                                         <IconComponent className="w-6 h-6 text-red-600" />
-                                    </motion.div>
+                                    </div>
 
 
                                     <motion.h3
