@@ -20,12 +20,12 @@ export default function Footer() {
     ];
 
     const services = [
-        { label: currentLan.ser1, href: '/services#1' },
-        { label: currentLan.ser2, href: '/services#2' },
-        { label: currentLan.ser3, href: '/services#3' },
-        { label: currentLan.ser4, href: '/services#4' },
-        { label: currentLan.ser5, href: '/services#5' },
-        { label: currentLan.ser6, href: '/services#6' }
+        { label: currentLan.ser1, href: '/services#section-1' },
+        { label: currentLan.ser2, href: '/services#section-2' },
+        { label: currentLan.ser3, href: '/services#section-3' },
+        { label: currentLan.ser4, href: '/services#section-4' },
+        { label: currentLan.ser5, href: '/services#section-5' },
+        { label: currentLan.ser6, href: '/services#section-6' }
     ];
 
     return (
@@ -55,7 +55,7 @@ export default function Footer() {
                             {navigation.map((item, index) => (
                                 <li key={index}>
                                     <Link
-                                        href={item.href}
+                                        href={item?.href}
                                         className="text-md text-gray-700 hover:text-red-600 transition-all ease-in-out duration-300"
                                     >
                                         {item.label}

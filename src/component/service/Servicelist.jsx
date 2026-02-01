@@ -127,13 +127,14 @@ export default function ServiceCards({ l }) {
         }
     ]
 
+
     return (
         <div className="w-full bg-white py-12">
             <div className="max-w-7xl mx-auto space-y-8 px-3">
                 {services.map((service, index) => {
                     const IconComponent = service.icon;
                     return (
-                        <div id={index} key={index} className="bg-gray-50 rounded-lg p-0 sm:p-2 md:p-5 lg:p-8 mb-10 scroll-mt-65">
+                        <div id={`section-${index + 1}`} key={index} className="bg-gray-50 rounded-lg p-0 sm:p-2 md:p-5 lg:p-8 mb-10 scroll-m-[130px]">
                             <div className="flex flex-col lg:flex-row justify-between gap-8">
                                 {/* Left Column - Title and Description */}
                                 <motion.div
