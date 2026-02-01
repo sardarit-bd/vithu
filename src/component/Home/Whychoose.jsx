@@ -6,7 +6,6 @@ import useLan from '@/stores/store/useLan';
 import lanChooser from '@/utiliy/lanChooser';
 import { motion } from 'framer-motion';
 import { BookOpen, Building2, Settings, Shield, Users } from 'lucide-react';
-import Image from "next/image";
 
 
 export default function WhyChooseSwitzerIT() {
@@ -79,20 +78,13 @@ export default function WhyChooseSwitzerIT() {
                                 ease: "easeOut"
                             }}
                             key={index}
-                            className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden group"
+                            className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden group p-4"
                         >
-                            <motion.div
-                                initial={{ opacity: 0, y: -15 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{
-                                    duration: 0.4,
-                                    delay: 0.3,
-                                    ease: "easeOut"
-                                }}
-                                className="w-full h-[200px] rounded-t-lg">
-                                <Image className="rounded-t-lg w-full h-full onject-cover bg-red-50 group-hover:scale-105 transition-all duration-500 ease-in-out" src={feature?.img} alt={feature.title} width={1000} height={1000} />
-                            </motion.div>
-                            <div className="p-4">
+                            <div className="w-12 h-12 bg-red-600 rounded-md flex items-center justify-center text-white mb-4">
+                                {feature.icon}
+                            </div>
+
+                            <div className="">
                                 <motion.h3
                                     initial={{ opacity: 0, x: -45 }}
                                     whileInView={{ opacity: 1, x: 0 }}
