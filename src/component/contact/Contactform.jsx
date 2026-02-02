@@ -142,11 +142,11 @@ export default function ContactSection({ l }) {
                                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-600 focus:border-transparent outline-none transition bg-white"
                                 >
                                     <option value="">{l?.subselete1}</option>
-                                    <option value="support">{l?.subselete2}</option>
-                                    <option value="devis">{l?.subselete3}</option>
-                                    <option value="info">{l?.subselete4}</option>
-                                    <option value="autre">{l?.subselete5}</option>
-                                    <option value="autre">{l?.subselete6}</option>
+                                    <option value={l?.subselete2}>{l?.subselete2}</option>
+                                    <option value={l?.subselete2}>{l?.subselete3}</option>
+                                    <option value={l?.subselete2}>{l?.subselete4}</option>
+                                    <option value={l?.subselete2}>{l?.subselete5}</option>
+                                    <option value={l?.subselete2}>{l?.subselete6}</option>
                                 </select>
                             </div>
 
