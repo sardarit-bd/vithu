@@ -25,7 +25,7 @@ export default function Header() {
             <div className="max-w-7xl mx-auto flex items-center justify-between px-3 py-4">
                 <Link href="/" className="flex items-center">
                     <Image
-                        src="https://res.cloudinary.com/dg83pvgls/image/upload/v1769431251/my_logo_pagady.png"
+                        src="https://res.cloudinary.com/dg83pvgls/image/upload/v1770027131/logo_qyncup.png"
                         alt="SwitzerIT Logo"
                         width={1000}
                         height={1000}
